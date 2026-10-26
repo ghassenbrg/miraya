@@ -1,0 +1,16 @@
+.DS_Store
+.build/
+build/
+dist/
+.gradle/
+.idea/
+local.properties
+*.keystore
+*.jks
+*.log
+.swiftpm/
+tools/.venv/
+android/.cxx/
+.env
+__pycache__/
+*.pyc

@@ -1,0 +1,11 @@
+# Product and visual direction
+
+Miraya uses the supplied Mac/TV visual references as a direction for its actual native applications: midnight navy surfaces (`#0B1020`), electric cyan (`#00E5FF`), blue (`#3B82F6`), soft blue (`#A7C7FF`) and near-white (`#F4F8FF`). Rounded panels, clear device selection, familiar screen/audio controls and a prominent sharing action carry across both apps. The app icon is repository-native vector artwork rendered at all macOS icon sizes.
+
+The normal flow is **open Miraya on the TV → choose the TV by name on the Mac → share**. DNS-SD discovery populates Available TVs automatically. Each TV can have a persistent friendly room name. Name changes affect discovery presentation; they do not change its stable receiver identity or saved cryptographic trust. Receiver names are untrusted labels, so first-time pairing still verifies the TV's displayed certificate code and requires the TV remote's approval.
+
+The Mac groups discovered/saved TVs beside display, quality and system-audio controls. First-time pairing is a focused sheet. Connection and sharing states are shown explicitly, and a stop action remains available during streaming or a retry. Failed discovery has useful recovery text. Manual IP/port entry is a fallback behind Connect by address, not the initial setup path.
+
+The TV is built for viewing from a distance and operating with a D-pad. It has a readable ready screen, pairing instructions, persistent TV naming, visible remote focus and full-screen aspect-correct playback. Manual address information lives in Connection details so IP addresses do not dominate normal use. New-sender approval defaults to the safer decline action; approval requires a deliberate remote selection. Back stops a stream. Leaving the activity stops receiving and discovery; V1 does not imply background availability or wake-on-LAN.
+
+The references contain illustrative device states, nearby-device examples and photographic surroundings. Production screens display only actual discovery/connection state, actual display choices and functional controls. Native window chrome, pickers and accessibility semantics are retained. Decorative screen-to-screen wave artwork communicates the product without replacing meaningful status or fabricating a connected receiver.
