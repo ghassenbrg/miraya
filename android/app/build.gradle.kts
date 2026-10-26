@@ -1,0 +1,36 @@
+plugins { id("com.android.application"); id("org.jetbrains.kotlin.android") }
+val signingVariables = listOf("MIRAYA_KEYSTORE", "MIRAYA_STORE_PASSWORD", "MIRAYA_KEY_ALIAS", "MIRAYA_KEY_PASSWORD")
+val suppliedSigningVariables = signingVariables.filter { !System.getenv(it).isNullOrBlank() }
+if (suppliedSigningVariables.isNotEmpty() && suppliedSigningVariables.size != signingVariables.size) {
+    throw GradleException("Release signing requires all of: " + signingVariables.joinToString(", ") + ". Missing: " + (signingVariables - suppliedSigningVariables.toSet()).joinToString(", "))
+}
+android {
+    namespace = "dev.miraya.tv"
+    compileSdk = 36
+    buildToolsVersion = "36.0.0"
+    defaultConfig { applicationId = "dev.miraya.tv"; minSdk = 26; targetSdk = 35; versionCode = 1; versionName = "1.0.0"; testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner" }
+    sourceSets.getByName("androidTest").assets.srcDir(rootProject.file("../build/capture-fixture"))
+    signingConfigs {
+        create("release") {
+            val path = System.getenv("MIRAYA_KEYSTORE")
+            if (path != null) {
+                require(file(path).isFile) { "MIRAYA_KEYSTORE does not point to a readable keystore file" }
+                storeFile = file(path); storePassword = System.getenv("MIRAYA_STORE_PASSWORD")
+                keyAlias = System.getenv("MIRAYA_KEY_ALIAS"); keyPassword = System.getenv("MIRAYA_KEY_PASSWORD")
+            }
+        }
+    }
+    buildTypes {
+        release { isMinifyEnabled = true; proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"); if (System.getenv("MIRAYA_KEYSTORE") != null) signingConfig = signingConfigs.getByName("release") }
+    }
+    compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
+    kotlinOptions { jvmTarget = "17" }
+    testOptions { unitTests.isReturnDefaultValues = true }
+}
+dependencies {
+    testImplementation("junit:junit:4.13.2")
+    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation("androidx.test:core:1.6.1")
+    androidTestImplementation("androidx.test.ext:junit:1.2.1")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.3.0")
+}
