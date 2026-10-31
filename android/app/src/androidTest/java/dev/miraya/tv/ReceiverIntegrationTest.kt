@@ -513,15 +513,33 @@ class ReceiverIntegrationTest {
     }
     @Test fun roomNamePersistsAndAppearsInWelcome() {
         val original = identity.name
-        val rename = device.wait(Until.findObject(By.text("Rename TV")), 3000)
-        assertNotNull(rename); rename.click()
-        val bedroom = device.wait(Until.findObject(By.text("Bedroom TV")), 3000)
-        assertNotNull(bedroom); bedroom.click()
-        assertTrue(device.wait(Until.hasObject(By.text("Bedroom TV")), 3000))
-        Thread.sleep(500)
-        assertEquals("Bedroom TV", Identity(context).name)
-        val (id, token) = trusted()
-        Client().use { it.hello(id, token); assertEquals("Bedroom TV", it.next().getString("name")) }
-        Identity(context).rename(original)
+        try {
+            val rename = device.wait(Until.findObject(By.text("Rename TV")), 3000)
+            assertNotNull(rename); rename.click()
+            val bedroom = device.wait(Until.findObject(By.text("Bedroom TV")), 3000)
+            assertNotNull(bedroom); bedroom.click()
+            assertTrue(device.wait(Until.hasObject(By.text("Bedroom TV")), 3000))
+            assertEquals("Bedroom TV", Identity(context).name)
+            // Renaming restarts discovery/listening. The receiver may select an
+            // available port while the old socket drains; use the same reported
+            // endpoint a manual connection would use, rather than assuming 7421.
+            device.findObject(By.text("Connection details")).click()
+            var client: Client? = null
+            val deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(5)
+            while (client == null && System.nanoTime() < deadline) {
+                val address = device.wait(Until.findObject(By.textContains("Manual connection\n")), 3000)
+                assertNotNull("Manual endpoint was not displayed", address)
+                val port = Regex("Port (\\d+)").find(address.text)?.groupValues?.get(1)?.toInt()
+                assertNotNull("Manual endpoint omitted its port", port)
+                try { client = Client(port!!) }
+                catch (_: java.net.ConnectException) {
+                    Thread.sleep(100)
+                    device.findObject(By.text("Refresh details")).click()
+                }
+            }
+            assertNotNull("Renamed receiver never became reachable at its reported endpoint", client)
+            val (id, token) = trusted()
+            client!!.use { it.hello(id, token); assertEquals("Bedroom TV", it.next().getString("name")) }
+        } finally { Identity(context).rename(original) }
     }
 }
