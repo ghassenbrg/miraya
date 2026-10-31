@@ -23,11 +23,14 @@ public struct Packet {
         self.type = type; self.flags = flags; self.pts = pts; self.sequence = sequence; self.payload = payload
     }
     public func encoded() throws -> Data {
-        try Self.validate(type: type, flags: flags, size: payload.count, pts: pts)
+        try validate()
         var result = Data([0x4d, 0x52, 0x59, 0x31, type.rawValue, flags, 0, 0])
         result.appendBE(UInt32(payload.count)); result.appendBE(pts); result.appendBE(sequence)
         result.append(payload)
         return result
+    }
+    public func validate() throws {
+        try Self.validate(type: type, flags: flags, size: payload.count, pts: pts)
     }
     static func validate(type: PacketType, flags: UInt8, size: Int, pts: UInt64) throws {
         guard flags == 0 || (type == .video && flags == 1) else { throw WireError.invalidHeader }
@@ -95,8 +98,8 @@ public struct VideoSize: Equatable {
 
 public enum PairingCode {
     public static func normalize(_ input: String) -> String? {
-        let s = input.replacingOccurrences(of: "-", with: "").replacingOccurrences(of: " ", with: "").lowercased()
-        guard s.count == 16, s.allSatisfy({ "0123456789abcdef".contains($0) }) else { return nil }
+        let s = input.replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "-", with: "")
+        guard s.count == 6, s.allSatisfy({ "0123456789".contains($0) }) else { return nil }
         return s
     }
 }

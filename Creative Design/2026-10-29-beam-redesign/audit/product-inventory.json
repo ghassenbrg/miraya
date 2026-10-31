@@ -1,0 +1,750 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "purpose": "Read-only product source inventory; functionality audit uses these source trees and repository documentation. Excludes old creative folders, unrelated pet work and generated build outputs.",
+  "files": [
+    {
+      "path": ".github/workflows/build.yml",
+      "bytes": 1933,
+      "sha256": "4e362097f507856246926cc2dc2ca9345195d0d36619dab937b5a129e2786bd9",
+      "area": ".github"
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "bytes": 7433,
+      "sha256": "55d31dc1fbbe80c87f1dcc102aec20e20785542f532da03ecd90e52bb665ded9",
+      "area": ".github"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11449,
+      "sha256": "69227bed19fbe34e6dc2bd25c3704667a305326985b1038659f54125e1a20a4e",
+      "area": "root"
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "bytes": 2473,
+      "sha256": "cf92787d089f6b07fc4eaed9be7ee4e453b5899efafc20d543ffeb31b2b7f9e4",
+      "area": "root"
+    },
+    {
+      "path": "VERSION",
+      "bytes": 6,
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "area": "root"
+    },
+    {
+      "path": "android/README.md",
+      "bytes": 5072,
+      "sha256": "7d0db95e71ce5557811aa760b9565d03d97338cfcc95a566f18eeb1e85d3238e",
+      "area": "android"
+    },
+    {
+      "path": "android/app/build.gradle.kts",
+      "bytes": 2952,
+      "sha256": "00334403f45eca2a340b0cd97b0a1f9adbdc922e223b0f23bf04ae4ed483ffcc",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/androidTest/java/dev/miraya/tv/ReceiverIntegrationTest.kt",
+      "bytes": 31748,
+      "sha256": "62b15056e32c6ba968433ddc992c32484c4251b399731f42809826a406afffec",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/AndroidManifest.xml",
+      "bytes": 1488,
+      "sha256": "7bcf8539807af7be080127fa7514ae2c9be918b5ac52eac7b4fd1dd0532e39e3",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Kotlin-NOTICE.txt",
+      "bytes": 636,
+      "sha256": "163e39ea18428887d42ccabb5685e5b9908617e6d1a4148f093f57e842c06588",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/Media3-NOTICE.txt",
+      "bytes": 427,
+      "sha256": "f705971e5460e309c4134119417434209155115020758b2e20fb2f71cdba0530",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/assets/licenses/WebRTC-NOTICES.txt",
+      "bytes": 162894,
+      "sha256": "442f01bbf98e1ff44f0a91a37d4eaba3928b4cbbbb967adf2ba0a99304de582d",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/DirectMediaPolicy.kt",
+      "bytes": 631,
+      "sha256": "5199818b0484f52ad0b95588929d4f588986a709c7b59d3481d16f167a3a4cc4",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/DirectMediaReceiver.kt",
+      "bytes": 16140,
+      "sha256": "e30894a6283bac63c4848872669d6ad5847d9af4459fbb50aff9f37a2a7c1edd",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/Identity.kt",
+      "bytes": 4443,
+      "sha256": "b673923c7270c1e3c2ba0efced0f2e25a549055dcd3cd890e19e129bf1e6f13f",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/MainActivity.kt",
+      "bytes": 25722,
+      "sha256": "2bd59f01951e43b4232296d6fb45cc5d8c54afb6dd49a8a755c96997a2847de2",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/MediaPipeline.kt",
+      "bytes": 14609,
+      "sha256": "28de8c27e5eae15b60a0cc6323cf88ea4de2088ae2de0aa303eb692ea960f167",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/PairingSession.kt",
+      "bytes": 1199,
+      "sha256": "d185a4a0f2d74a3bc34a4c795e96520a3d269e731313e27ffcde934408d92a97",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/PlayoutClock.kt",
+      "bytes": 909,
+      "sha256": "e999a39bb02f5400463cf5d29f5837dffcb055a2830e8fd8091df3b0ef4e4f15",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/ReceiverServer.kt",
+      "bytes": 29672,
+      "sha256": "0625b8d21d64eda84f660cc19fc1470819726c81498a352f5552025382880ba1",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/RtcMediaReceiver.kt",
+      "bytes": 19539,
+      "sha256": "20c118d5714eedc218559569145fea9f375c21870576e15c29d5df18a3c5c57e",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/RtcSignaling.kt",
+      "bytes": 2784,
+      "sha256": "69b8bac0c71e14eb8ab4ef99cf8c6b4dce1f3bfdcd1eafb051717d724090f288",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/ScreenDecoderFactory.kt",
+      "bytes": 1781,
+      "sha256": "a81c350a6822418e6dc12a6c4a3e35cc606fb6d49451ff002646ae5e6e5ce591",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/SignalArtView.kt",
+      "bytes": 3405,
+      "sha256": "af4c8e8ff96b22ba441b02c354200118279a8ec1d97e187493615955228cc731",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/TVPresentation.kt",
+      "bytes": 1542,
+      "sha256": "c3786ba254282769d41be6a5aa3df47d8c5fbb0e539e95c9b515c38ff1057751",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/VideoBuffer.kt",
+      "bytes": 2032,
+      "sha256": "beacbef49a67341ca544490c1f74c5d58f033e9addba5e4ebf4d919d349c89a4",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/java/dev/miraya/tv/Wire.kt",
+      "bytes": 1901,
+      "sha256": "f027fcf738485c344f857dc51499266df54d8fea81fadb59e634022aab1c3180",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/ic_miraya.xml",
+      "bytes": 550,
+      "sha256": "678f40e8e02c7c6ac9852da20170df290bc7ba97bd3515fe5504ae420f883e80",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/res/drawable/tv_banner.xml",
+      "bytes": 806,
+      "sha256": "0e12a05a1291c9028aac85d517f6fe89e14da7c2f8ad476c6370a58e72e2196a",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/res/values/styles.xml",
+      "bytes": 468,
+      "sha256": "c4197449079e13eba4b8a7409a7e8abc7d94e049d05b895d727fa248d8ff2768",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/main/res/xml/data_extraction_rules.xml",
+      "bytes": 560,
+      "sha256": "8be827692b21716f2b24280ccf1970ed9bb9768bc8fd7b59ab30c7e4a37ef489",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/test/java/dev/miraya/tv/DirectMediaPolicyTest.kt",
+      "bytes": 1163,
+      "sha256": "d0d1e9b788acc4e5b8dcc19198068e11b29593d0fe09c74fdb51b7703f1a50df",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/test/java/dev/miraya/tv/PairingSessionTest.kt",
+      "bytes": 797,
+      "sha256": "687ab57402f16ed7d72b0bf696b4aede97f9b991fb9e8d9aae7990a9b386cded",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/test/java/dev/miraya/tv/PlaybackRecoveryTest.kt",
+      "bytes": 2602,
+      "sha256": "19ab8127fd5d341c5594fd733421637872e4be67882bffc9e71f1cb27452d2ba",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/test/java/dev/miraya/tv/RtcSignalingTest.kt",
+      "bytes": 1980,
+      "sha256": "55712beb58202821fb6100338f756af03a8447328752235ab7245bb81d6a93a0",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/test/java/dev/miraya/tv/TVPresentationTest.kt",
+      "bytes": 1523,
+      "sha256": "e9441bd7c93c40495a51b6917a94c8921a540e2d0a40eb6d0e442a7b468e2ec9",
+      "area": "android"
+    },
+    {
+      "path": "android/app/src/test/java/dev/miraya/tv/WireTest.kt",
+      "bytes": 2830,
+      "sha256": "44b816674c39cf51aac724d333b64860ed76a5658eccb05cbed0ec9e609a5775",
+      "area": "android"
+    },
+    {
+      "path": "android/build.gradle.kts",
+      "bytes": 142,
+      "sha256": "329036499b58c82966a8dabcbc172c4e2804bbb96b775fb656770e6555da3084",
+      "area": "android"
+    },
+    {
+      "path": "android/gradle.properties",
+      "bytes": 133,
+      "sha256": "782f39e29894758ffbc7acb255e39a6b644d7a22d695ab89aceb6d7ea0ecebb3",
+      "area": "android"
+    },
+    {
+      "path": "android/gradle/wrapper/gradle-wrapper.properties",
+      "bytes": 290,
+      "sha256": "c1df29f10948da4b8b37df2b5c6e7525b051f8e7088658efdaacd95858c0ecfd",
+      "area": "android"
+    },
+    {
+      "path": "android/gradlew",
+      "bytes": 276,
+      "sha256": "52a2d50ab57dc2ba4321809929d6ca98eb435793cca98f00d05dd2401479ab2e",
+      "area": "android"
+    },
+    {
+      "path": "android/settings.gradle.kts",
+      "bytes": 270,
+      "sha256": "2ea999ba116143985354dba435e8078759843f0386d9ebc1dcb15ed93c79b3d3",
+      "area": "android"
+    },
+    {
+      "path": "docs/DECISIONS.md",
+      "bytes": 7528,
+      "sha256": "11e537fa411246e0273029e657364f93f96229adfeb1c2f7f8fdf4668c3eeeaa",
+      "area": "docs"
+    },
+    {
+      "path": "docs/PERFORMANCE.md",
+      "bytes": 12727,
+      "sha256": "9eb9f7db7d12d8007a8b272a76306df63ce2d31020c6d12026eac3b4750ad5df",
+      "area": "docs"
+    },
+    {
+      "path": "docs/RELEASE-NOTES.md",
+      "bytes": 1910,
+      "sha256": "c6b93d8b0709158b925ad9737260402efad355375fa77f6a531c3eb70208e1b0",
+      "area": "docs"
+    },
+    {
+      "path": "docs/RELEASING.md",
+      "bytes": 9646,
+      "sha256": "30f559b259367c94e4dc72f845a7eea6090a666f5a2ac67fb33acf5e7b77bc85",
+      "area": "docs"
+    },
+    {
+      "path": "docs/SECURITY.md",
+      "bytes": 6656,
+      "sha256": "f95941851a343a604f9877cd3282a8be73a01e192c626789f1cb155966518468",
+      "area": "docs"
+    },
+    {
+      "path": "docs/TESTING.md",
+      "bytes": 44075,
+      "sha256": "fdce5182b7f42464cdbe5ae09e7e32596a16ec8196bb4cab2314fb83d813d134",
+      "area": "docs"
+    },
+    {
+      "path": "docs/TROUBLESHOOTING.md",
+      "bytes": 16485,
+      "sha256": "e9e75d5eae0203e0109a7ff5a73916837e828bc274ab5328331297c3cdae00dc",
+      "area": "docs"
+    },
+    {
+      "path": "docs/UX.md",
+      "bytes": 8145,
+      "sha256": "a8057492092b4d830762ee2660d1a2c8b7bf194c0ac1b0c1d09edbb79a268b3b",
+      "area": "docs"
+    },
+    {
+      "path": "licenses/Apache-2.0.txt",
+      "bytes": 11358,
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "area": "licenses"
+    },
+    {
+      "path": "licenses/WebRTC-NOTICES.txt",
+      "bytes": 162894,
+      "sha256": "442f01bbf98e1ff44f0a91a37d4eaba3928b4cbbbb967adf2ba0a99304de582d",
+      "area": "licenses"
+    },
+    {
+      "path": "macos/Package.resolved",
+      "bytes": 297,
+      "sha256": "f40f35290a65a47f48dbeaaf08551dc41ec4a8bbcf4caeb8fbc140582c561131",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Package.swift",
+      "bytes": 939,
+      "sha256": "3727e3ad351bfa0feec09d75b82c88d910ccd4f40e991b941671517e2a1166ff",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/AppModel.swift",
+      "bytes": 58674,
+      "sha256": "0c52e0e0123fb5c78bc811202faf42628ca2878e0dd5969719c69ebdb37ce086",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/AreaSelection.swift",
+      "bytes": 2998,
+      "sha256": "e639f2f031cdb7cabc029f6b758bb157948202bafa565ea1fd69f37af9d28806",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/Brand.swift",
+      "bytes": 3682,
+      "sha256": "6f12206514b5598aa3017f3d843152f3fce09eb99043aba05d4dfc4a295807e4",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/CaptureEngine.swift",
+      "bytes": 17144,
+      "sha256": "0b8e6addf7890cc2f61371b6e4e27d4882ec5546bf1c4780fa7dd7e29b9851d2",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/CaptureSourceProbe.swift",
+      "bytes": 3087,
+      "sha256": "e8124d16e0e9d72c334ac36c62694d3eeddc570dfd16ac6acd45d21f4528e168",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/ContentView.swift",
+      "bytes": 25867,
+      "sha256": "77ee0a89b760a12212d3ad89d52c831eab943eb2f5099f46bd5effaf01143e2a",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/Diagnostics.swift",
+      "bytes": 2444,
+      "sha256": "9e5b218dcd01cd8c4ed871ed402423782a7b1eb4fff0d7517f9c65ae37591d4e",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/Discovery.swift",
+      "bytes": 5723,
+      "sha256": "292879dc741cf86ed1bf667905fb0f8123dac8afbef2a5fa74a6f3835e4c4dfa",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/H264Encoder.swift",
+      "bytes": 11110,
+      "sha256": "e793e1afe5b53c84fd3c2a277d649b3e392a6c4e3e47913cffc609eaedd032b3",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/MacAudioRouter.swift",
+      "bytes": 5732,
+      "sha256": "e184f028c561b885030fadf95990467d147eeb2dbc5fa19c3229feee33fbc4f7",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/MirayaApp.swift",
+      "bytes": 2120,
+      "sha256": "e794c92ff684158e500eb15b4461d94169b55bcba45ca9df3e38bf36101bac00",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/PlaybackControls.swift",
+      "bytes": 6238,
+      "sha256": "282e6ffc7068914dcc1a452d5a0fc288f02c1dd0afefec2fdaa59451fc546a44",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/RTCStreamSender.swift",
+      "bytes": 28897,
+      "sha256": "778b3deacc015c0db01faae10edb1a3a2a46e29f6f6bc48e49669f4f70243ac8",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/SharingMetricsView.swift",
+      "bytes": 8123,
+      "sha256": "4d9a76a0f7449424145157f847c0895b7957a8b2cb8cd9ceda0ad199a3bf28fc",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/StreamConnection.swift",
+      "bytes": 17820,
+      "sha256": "658ea9f5567ffea4501453de7ffcfe3a7bb1b851cefcac067a8a57d70e8dfc94",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/SystemAudioPCM.swift",
+      "bytes": 4177,
+      "sha256": "3c9fd6944d6bc408c7c95c3964fa0f24eddbc258b9793728884c04a881e7a849",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/TransportProbe.swift",
+      "bytes": 37359,
+      "sha256": "a9db0d19f630f5cdea4deb0d17cbfd6eb09e14bbfffa84a37f1dedf5d8e8663f",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/Miraya/TrustStore.swift",
+      "bytes": 1284,
+      "sha256": "c32f3e336718a575519b9176143690ba25c057068f8b3629cc950e1e36a26573",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/AudioDestination.swift",
+      "bytes": 358,
+      "sha256": "72b9a87322aaaf952ad84094eacc39987cb8de2ab7e01f7b5f3e9d76336786cf",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/ConnectionStep.swift",
+      "bytes": 1932,
+      "sha256": "87cc61e679a40cdaa97cb3dfd193c118153cdf701ea2b51a001c58b826bc6b16",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/DiagnosticHistory.swift",
+      "bytes": 1340,
+      "sha256": "d50bf46da02dedf2e6c8b31392ab2939e415b783573d9f276440b3cd75710fa4",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/KeychainVault.swift",
+      "bytes": 3316,
+      "sha256": "383679c3c35b1bcddc1965c9852e212e53de7a503f4f4932aa0503762f56c842",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/MediaFileProvider.swift",
+      "bytes": 2507,
+      "sha256": "13b2ad249fcb69eb6abce1c4922e96952c239a6fb3a1545f14c045e4a53b835c",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/PairingSession.swift",
+      "bytes": 1341,
+      "sha256": "633208770affce8a248a63c83363635cbde3652894c291f7e696608dd7ea6e5d",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/PlaybackCapacity.swift",
+      "bytes": 2607,
+      "sha256": "682a338aee4a744d4d262ac04eb2e194b2965d05395abb304dc3e100b5cbfce8",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/RTCSignaling.swift",
+      "bytes": 4472,
+      "sha256": "ccb05fa5b081fea5148fe40a994aeb6bcebcd7c3c47af9dd229069a01df85499",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/SharingOptions.swift",
+      "bytes": 2149,
+      "sha256": "66070cab1ef927d40d497c4def9ddc8ea5257977cc97b333d8b33bc0c0b19ae0",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/StreamFlowControl.swift",
+      "bytes": 4064,
+      "sha256": "b5cbbb0de015b2d6ffbd26ce41317ca281f01d22483a44441d5ed3b51295842c",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/StreamHealth.swift",
+      "bytes": 2468,
+      "sha256": "bd6701a2b645cd9b00798bb40363f0dad332e49273fd64d825055a82ecf06117",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/TVDisplay.swift",
+      "bytes": 1924,
+      "sha256": "b0935923c4d2f73ae133f6596a20bcd9d9e9ae10ae8017249b29612bd2045075",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaCore/Wire.swift",
+      "bytes": 4922,
+      "sha256": "f4603216167caf5fc9e341feb9aea525897632c2ccefebfba864feaa1ea9f4b8",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaRTCBridge/MirayaSystemAudioDevice.m",
+      "bytes": 7882,
+      "sha256": "3cfd1050e3a29cbca38dacebf6f063462c9b117e07943ba79acddc03b0cb7c10",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaRTCBridge/RTCAudioDevice.h",
+      "bytes": 11897,
+      "sha256": "8b4bdd60ab38c0a092da4b1ad6064946a77b0ffe95c2e116a1643c8d8ca3d83d",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Sources/MirayaRTCBridge/include/MirayaSystemAudioDevice.h",
+      "bytes": 655,
+      "sha256": "917060eb6115e9e59134bc3d18ca3e8e1bf037b37e7f3761c3c8f81c3658e6bb",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/KeychainVaultTests.swift",
+      "bytes": 1272,
+      "sha256": "f23e26414228e093738206d4241e6a82f051a6837bb2e4e18347f46e96879310",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/MediaFileProviderTests.swift",
+      "bytes": 1328,
+      "sha256": "97772a404493a5dd76098d2aa605dd4b9b7f69b6efbab0665e4cdd59535d62a6",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/PairingSessionTests.swift",
+      "bytes": 2001,
+      "sha256": "ede0401c326106b5bd0bc1eae913e477c4672813c6aca6649913016b4ca1a347",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/PlaybackCapacityTests.swift",
+      "bytes": 3958,
+      "sha256": "24fc3e27b88d167aa91e3cb43bbebafa9239fa2e654ca1289acbe457b4044807",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/RTCSignalingTests.swift",
+      "bytes": 3190,
+      "sha256": "d7073695225da5bc384abc347cd3bd6de3830f56e5d64cc2f3c69d5e852c0c42",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/SharingControlsTests.swift",
+      "bytes": 2767,
+      "sha256": "4bb1c60ffe52d45e1a8891c8fffaa8bbf77448b7681494aa89a468453c1809a8",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/SharingOptionsTests.swift",
+      "bytes": 2487,
+      "sha256": "ba74262d0683333c7a3e114fc0fa4c29f297c4dca908de8e0ac954a490b5097e",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/StreamFlowControlTests.swift",
+      "bytes": 4098,
+      "sha256": "e8741dee9deada3334f64a74e4d824be5649046fe2f643699df78c50116b1348",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/TVDisplayTests.swift",
+      "bytes": 1003,
+      "sha256": "631902a8b586351be7a27fa63f8313632f8d06217def5a75386c3014bd7aad7b",
+      "area": "macos"
+    },
+    {
+      "path": "macos/Tests/MirayaCoreTests/WireTests.swift",
+      "bytes": 3235,
+      "sha256": "e2d64294e9878ed35f7e3f4bded43b1cd94d11e84b361b258d0fa5c2e0e8bf35",
+      "area": "macos"
+    },
+    {
+      "path": "protocol/PROTOCOL.md",
+      "bytes": 17417,
+      "sha256": "4920c7fb585a3e4fb62f975c6f9a7ce1cd0ea73e04c49cc9fd8beac3a2e386ed",
+      "area": "protocol"
+    },
+    {
+      "path": "scripts/android-env.sh",
+      "bytes": 1147,
+      "sha256": "9fc1a7034f808b1517eb2672dc7abd4ad3e447b6faebcb733fb47191e88ee459",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/build-android.sh",
+      "bytes": 1625,
+      "sha256": "7e9bbaffae16e47d53236f68707a6b325b9a558d7efd6c46582b51bd9413882b",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/build-macos.sh",
+      "bytes": 4070,
+      "sha256": "36f1b10bd8e28c3f6177b4b045a2e0e61507236ae54099051abf276cb26a9bf2",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/ci/import-signing.sh",
+      "bytes": 1648,
+      "sha256": "6e26a09ad91b1cdb01b8813984b9baf41327242f68b5d5c6500b9fc55d4d8a63",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/ci/package-release.sh",
+      "bytes": 1750,
+      "sha256": "c812f02eb190a0f3cf7baeb15b67afd1020709da4fe05e9b8ce316e1497168c8",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/ci/release-plan.sh",
+      "bytes": 1481,
+      "sha256": "f5bc72ef698f1bffbf16d68bb2af63380bd23d151c9c0b037b12d702a18675c9",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/ci/select-xcode.sh",
+      "bytes": 352,
+      "sha256": "d4b8ab258b1a921eb5ac95477886aaf4af452b35d58cc287482ff4a7fb330c43",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/doctor.sh",
+      "bytes": 1278,
+      "sha256": "aab563660789a54f68f44b6a6d01ce8369aab2ee24ef7b80ac34f1d50ccd1fee",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/macos/generate-icon.swift",
+      "bytes": 2783,
+      "sha256": "62aeebce3f50d7cf6230a80889101372e7254814c1e68910c2cfbccee26bb92f",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/package-release.sh",
+      "bytes": 451,
+      "sha256": "48f38bacdb68bed42d9609b7f851c2b837d498c417e8dfb05b8c9cd2ff24b83c",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/setup-android.sh",
+      "bytes": 1135,
+      "sha256": "7991bb0fbae385f0f1692aff96542f6305eba7409a10576351a179eea3beb5d5",
+      "area": "scripts"
+    },
+    {
+      "path": "scripts/test.sh",
+      "bytes": 297,
+      "sha256": "b059eae91d139d654a35bb2d5ab2ffd7eb710a847d268304592a58b9a3568b77",
+      "area": "scripts"
+    },
+    {
+      "path": "tools/capture/Probe.swift",
+      "bytes": 7743,
+      "sha256": "47aeb19127d01fa4eedc8b65b91c2975ba4a6f3f6e80be7c37d5fdb3e5f803fe",
+      "area": "tools"
+    },
+    {
+      "path": "tools/capture/README.md",
+      "bytes": 5571,
+      "sha256": "4682454828e046e7543c24cf1580f975f875bfbb48f83d66600a1dbdec87f951",
+      "area": "tools"
+    },
+    {
+      "path": "tools/capture/loopback_receiver.py",
+      "bytes": 17760,
+      "sha256": "803880b785b0cc279dd85319e3e11767482f4326683718a0098e9e73c247130c",
+      "area": "tools"
+    },
+    {
+      "path": "tools/capture/test-capture.sh",
+      "bytes": 584,
+      "sha256": "18f9a204df3a9584d4fab64ae3cec1e02ef52aad671448da2527ff9d0ce30acb",
+      "area": "tools"
+    },
+    {
+      "path": "tools/discovery/BonjourProbe.swift",
+      "bytes": 6985,
+      "sha256": "5d878070033f63dc2575202c0d6f57ce538dbd0d0f9c7105dc67c3927b221cf8",
+      "area": "tools"
+    },
+    {
+      "path": "tools/discovery/test-discovery.sh",
+      "bytes": 410,
+      "sha256": "cb4e60bced6a07b7849bd94242b7f14fb9cff46252141c40401f37f77f8cb47a",
+      "area": "tools"
+    },
+    {
+      "path": "tools/emulator-smoke.py",
+      "bytes": 17207,
+      "sha256": "9a4bb16e03888d7a1c6d97b5692efe6fcfe1b4dee807db9df356cd63357c66ea",
+      "area": "tools"
+    },
+    {
+      "path": "tools/make-direct-media-fixture.sh",
+      "bytes": 569,
+      "sha256": "d1aa33c6fe58aff947e6fee7fe0da7c222f63d1c0d73274ad7d6521864a15938",
+      "area": "tools"
+    },
+    {
+      "path": "tools/network-shaper.py",
+      "bytes": 3846,
+      "sha256": "8452a59d14dd159208bdea9812fb3971e5d6f913458408799766afbf8dc8b8b3",
+      "area": "tools"
+    },
+    {
+      "path": "tools/test-local-audio-guardian.py",
+      "bytes": 3785,
+      "sha256": "807f65ead0627eec2decbbade23667fbfe3bdf9577edb32277f26ea25e09a26b",
+      "area": "tools"
+    },
+    {
+      "path": "tools/test-release-plan.py",
+      "bytes": 3172,
+      "sha256": "dbbba3caba2e04ee0f94354e7bd51bd326618596c540eb54703721327adaf6d3",
+      "area": "tools"
+    },
+    {
+      "path": "tools/udp-relay.py",
+      "bytes": 6758,
+      "sha256": "27eb24f19a40037a70b2307aaa6cf87149db64953f162360cea3ac44273c2b2c",
+      "area": "tools"
+    }
+  ]
+}

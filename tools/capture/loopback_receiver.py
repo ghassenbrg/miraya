@@ -29,6 +29,9 @@ HEADER = struct.Struct(">4sBBHIQI")
 class Receiver:
     def __init__(self, cert: Path, key: Path, mode: str, sessions: int = 1):
         self.mode = mode
+        self.fingerprint = hashlib.sha256(ssl.PEM_cert_to_DER_cert(cert.read_text())).hexdigest()
+        self.short_code: str | None = None
+        self.pairing_ready = threading.Event()
         self.sessions = sessions
         self.context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
         self.context.minimum_version = ssl.TLSVersion.TLSv1_2
@@ -98,6 +101,7 @@ class Receiver:
         nonzero_audio = False
         previous_sequence = -1
         state = "hello"
+        pairing_commitment = ""
         last_stats = time.monotonic()
         keyframe_requested = False
         keyframe_received = False
@@ -113,8 +117,8 @@ class Receiver:
                 maximum = 65536 if kind in (1, 2) else (19200 if kind == 4 else 4 * 1024 * 1024)
                 if magic != b"MRY1" or reserved or kind not in (1, 2, 3, 4) or flags & ~1 or (flags and kind != 3) or not 0 < size <= maximum:
                     raise ValueError("Sender produced an invalid packet header")
-                if incoming_sequence != previous_sequence + 1:
-                    raise ValueError("Sender sequence was not contiguous")
+                if previous_sequence >= 0 and not 0 < (incoming_sequence - previous_sequence) % (1 << 32) < (1 << 31):
+                    raise ValueError("Sender sequence did not advance")
                 previous_sequence = incoming_sequence
                 payload = self.read_exact(stream, size)
                 if kind == 1:
@@ -124,6 +128,19 @@ class Receiver:
                         self.hellos += 1
                         if state != "hello" or control.get("version") != 1:
                             raise ValueError("Invalid sender handshake")
+                        if self.mode.startswith("sas-"):
+                            if control.get("pairing") != "sas6-v1" or len(control.get("commitment", "")) != 64:
+                                raise ValueError("Sender did not commit to short-code pairing")
+                            if self.mode == "sas-early-welcome":
+                                send({"op":"welcome", "version":1, "receiverId":"ad31322a-ec01-48d6-ad0a-ab1f7b1de497", "name":"Unverified peer", "token":self.token})
+                                return
+                            if self.mode == "sas-downgrade":
+                                send({"op":"pending"})
+                                return
+                            self.client = control["clientId"]
+                            pairing_commitment = control["commitment"]
+                            send({"op":"pairChallenge", "pairing":"sas6-v1", "nonce":"bad" if self.mode == "sas-bad-nonce" else "02" * 32})
+                            continue
                         if self.mode == "reject":
                             send({"op": "error", "code": "denied", "message": "Diagnostic receiver denied pairing"})
                             return
@@ -140,6 +157,14 @@ class Receiver:
                         if self.mode == "version":
                             return
                         state = "authorized"
+                    elif op == "pairReveal":
+                        reveal = control["nonce"]
+                        if hashlib.sha256(("Miraya sender commitment v1\n" + reveal).encode()).hexdigest() != pairing_commitment:
+                            raise ValueError("Sender revealed a different nonce")
+                        transcript = "\n".join(["Miraya pairing SAS v1", self.fingerprint, self.client.lower(), reveal, "02" * 32])
+                        self.short_code = f"{int.from_bytes(hashlib.sha256(transcript.encode()).digest()[:4], 'big') % 1_000_000:06d}"
+                        self.pairing_ready.set()
+                        send({"op":"pending", "stage":"code", "expiresIn":90})
                     elif op == "start":
                         if state != "authorized" or control.get("audio") is not True:
                             raise ValueError("Media started before authorization or without diagnostic audio")
@@ -222,7 +247,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sender", type=Path, help="Built sender executable; default is SwiftPM's actual debug output path")
     parser.add_argument("--output", type=Path, default=Path("build/loopback-report.json"))
-    parser.add_argument("--case", choices=("all", "success", "wrong-pin", "reject", "version", "malformed", "disconnect"), default="all")
+    parser.add_argument("--case", choices=("all", "success", "wrong-pin", "reject", "version", "malformed", "disconnect", "sas-early-welcome", "sas-downgrade", "sas-bad-nonce", "sas-wrong-code"), default="all")
     args = parser.parse_args()
     for binary in ("ffmpeg", "openssl"):
         if not shutil.which(binary):
@@ -245,7 +270,7 @@ def main():
                        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
         der = ssl.PEM_cert_to_DER_cert(cert.read_text())
         code = hashlib.sha256(der).hexdigest()[:16]
-        cases = ["success", "wrong-pin", "reject", "version", "malformed", "disconnect"] if args.case == "all" else [args.case]
+        cases = ["success", "wrong-pin", "reject", "version", "malformed", "disconnect", "sas-early-welcome", "sas-downgrade", "sas-bad-nonce", "sas-wrong-code"] if args.case == "all" else [args.case]
         for mode in cases:
             receiver = Receiver(cert, key, mode, sessions=2 if mode == "success" else 1)
             env = os.environ.copy()
@@ -253,10 +278,24 @@ def main():
                 env.pop(name, None)
             env["MIRAYA_PROBE_RECONNECT"] = "1" if mode == "success" else "0"
             attempted_code = ("f" if code[0] != "f" else "e") + code[1:] if mode == "wrong-pin" else code
-            run = subprocess.run([str(args.sender.resolve()), "--probe", "127.0.0.1", str(receiver.port), attempted_code, "4"],
-                                 env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=35)
+            if mode.startswith("sas-"): attempted_code = "interactive"
+            command = [str(args.sender.resolve()), "--probe", "127.0.0.1", str(receiver.port), attempted_code, "4"]
+            if mode == "sas-wrong-code":
+                process = subprocess.Popen(command, env=env, text=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+                if receiver.pairing_ready.wait(timeout=8) and receiver.short_code:
+                    value = receiver.short_code
+                    wrong = ("1" if value[0] == "0" else "0") + value[1:]
+                    output, _ = process.communicate(input=wrong + "\n", timeout=20)
+                else:
+                    process.kill(); output, _ = process.communicate()
+                run = subprocess.CompletedProcess(command, process.returncode, output)
+            else:
+                run = subprocess.run(command, env=env, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, timeout=35)
             receiver.thread.join(timeout=2)
             passed = not receiver.errors and (run.returncode == 0 if mode == "success" else run.returncode != 0)
+            if mode.startswith("sas-"):
+                passed &= receiver.hellos == 1 and "streaming real H.264" not in run.stdout
+                if mode == "sas-wrong-code": passed &= "codes do not match" in run.stdout
             if mode == "wrong-pin":
                 passed &= receiver.hellos == 0 and "identity" in run.stdout.lower()
             if mode == "success":

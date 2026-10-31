@@ -40,8 +40,8 @@ final class WireTests: XCTestCase {
         XCTAssertThrowsError(try parser.append(Data(wire.prefix(24))))
     }
     func testPairingCodeAndScaling() {
-        XCTAssertEqual(PairingCode.normalize("A1B2-C3D4-E5F6-0123"), "a1b2c3d4e5f60123")
-        XCTAssertNil(PairingCode.normalize("passwordpassword")); XCTAssertNil(PairingCode.normalize("123456"))
+        XCTAssertEqual(PairingCode.normalize("012 345"), "012345")
+        XCTAssertNil(PairingCode.normalize("A1B2-C3D4-E5F6-0123")); XCTAssertNil(PairingCode.normalize("12345"))
         XCTAssertEqual(VideoSize.fit(width: 3840, height:2160, maxWidth:1920,maxHeight:1080), VideoSize(width:1920,height:1080))
         let portrait = VideoSize.fit(width:1080,height:1920,maxWidth:1920,maxHeight:1080)
         XCTAssertEqual(portrait.height,1080); XCTAssertEqual(portrait.width,606)

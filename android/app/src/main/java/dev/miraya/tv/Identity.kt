@@ -24,7 +24,8 @@ class Identity(context: Context) {
         private set
     val hasCustomName: Boolean get() = prefs.contains("name")
     val sslContext: SSLContext
-    val pairingCode: String
+    val pairingCode: String // Legacy certificate code, retained for older diagnostic clients.
+    val fingerprint: String
 
     init {
         if (!keyStore.containsAlias(ALIAS)) {
@@ -38,7 +39,7 @@ class Identity(context: Context) {
                 .setCertificateNotBefore(Date(1577836800000L)).setCertificateNotAfter(Date(4102444800000L)).build())
             generator.generateKeyPair()
         }
-        val fingerprint = MessageDigest.getInstance("SHA-256").digest(keyStore.getCertificate(ALIAS).encoded).joinToString("") { "%02X".format(it) }
+        fingerprint = MessageDigest.getInstance("SHA-256").digest(keyStore.getCertificate(ALIAS).encoded).joinToString("") { "%02X".format(it) }
         pairingCode = fingerprint.take(16).chunked(4).joinToString("-")
         val factory = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm())
         factory.init(keyStore, null)
@@ -46,12 +47,19 @@ class Identity(context: Context) {
     }
 
     @Synchronized fun tokenFor(clientId: String): String? = prefs.getString("client.$clientId", null)
-    @Synchronized fun approve(clientId: String): String {
+    data class TrustedMac(val id: String, val name: String)
+    @Synchronized fun trustedMacs(): List<TrustedMac> = prefs.all.keys.filter { it.startsWith("client.") }
+        .map { id -> val client = id.removePrefix("client."); TrustedMac(client, prefs.getString("label.$client", "Mac") ?: "Mac") }
+        .sortedBy { it.name.lowercase() }
+    @Synchronized fun revoke(clientId: String) {
+        check(prefs.edit().remove("client.$clientId").remove("label.$clientId").commit()) { "Could not forget Mac" }
+    }
+    @Synchronized fun approve(clientId: String, name: String = "Mac"): String {
         val token = Base64.encodeToString(ByteArray(32).also { SecureRandom().nextBytes(it) }, Base64.URL_SAFE or Base64.NO_WRAP or Base64.NO_PADDING)
-        check(prefs.edit().putString("client.$clientId", token).commit()) { "Could not save trusted Mac" }
+        check(prefs.edit().putString("client.$clientId", token).putString("label.$clientId", name.take(80)).commit()) { "Could not save trusted Mac" }
         return token
     }
-    @Synchronized fun revokeAll() { prefs.edit().apply { prefs.all.keys.filter { it.startsWith("client.") }.forEach { remove(it) } }.commit() }
+    @Synchronized fun revokeAll() { prefs.edit().apply { prefs.all.keys.filter { (it.startsWith("client.") || it.startsWith("label.")) }.forEach { remove(it) } }.commit() }
     @Synchronized fun rename(value: String) {
         val cleaned = value.trim()
         require(cleaned.length in 1..32 && cleaned.none { it.isISOControl() }) { "Choose a name between 1 and 32 characters" }

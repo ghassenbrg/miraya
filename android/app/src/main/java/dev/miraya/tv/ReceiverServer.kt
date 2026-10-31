@@ -11,6 +11,8 @@ import android.os.Looper
 import android.util.Log
 import android.view.Surface
 import org.json.JSONObject
+import java.io.BufferedInputStream
+import java.io.BufferedOutputStream
 import java.io.DataInputStream
 import java.io.DataOutputStream
 import java.io.EOFException
@@ -33,10 +35,16 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
         fun onListening(port: Int, addresses: String, discoveryAvailable: Boolean)
         fun onStatus(title: String, detail: String)
         fun approve(name: String, respond: (Boolean) -> Unit)
+        fun onPairingCode(code: String?) {}
+        fun onPaused(paused: Boolean) {}
         fun dismissApproval()
         fun surface(): Surface?
         fun onStreaming(name: String, streaming: Boolean)
         fun onVideoSize(width: Int, height: Int)
+        fun directPlayerView(): androidx.media3.ui.PlayerView? = null
+        fun onDirectPlayback(enabled: Boolean) {}
+        fun displayInfo(): TVDisplay = TVDisplay(1920, 1080, 1920, 1080, 60.0, PresentationSettings())
+        fun setPresentation(settings: PresentationSettings, respond: (TVDisplay) -> Unit) { respond(displayInfo().copy(presentation = settings)) }
     }
     private val nsd = context.getSystemService(NsdManager::class.java)
     private var registration: NsdManager.RegistrationListener? = null
@@ -119,21 +127,31 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
     }
 
     fun stopSharing() { session?.stopByUser() }
+    fun updatePresentation(display: TVDisplay) { session?.updatePresentation(display) }
+    fun revokeMac(clientId: String) { if (session?.clientId == clientId) session?.stopByUser(); identity.revoke(clientId) }
     fun revokeTrust() { session?.stopByUser(); identity.revokeAll() }
 
     private inner class Session(private val socket: SSLSocket) : AutoCloseable {
-        private val input = DataInputStream(socket.inputStream)
-        private val output = DataOutputStream(socket.outputStream)
+        private val input = DataInputStream(BufferedInputStream(socket.inputStream, 64 * 1024))
+        private val output = DataOutputStream(BufferedOutputStream(socket.outputStream, 16 * 1024))
         private val sequence = AtomicInteger()
         @Volatile private var closed = false
         @Volatile private var lastReceive = System.nanoTime()
         @Volatile private var streaming = false
-        private var media: MediaPipeline? = null
+        @Volatile private var media: MediaPipeline? = null
+        @Volatile private var rtc: RtcMediaReceiver? = null
+        @Volatile private var direct: DirectMediaReceiver? = null
+        private var transport = "tcp-v1"
+        private var paused = false
+        private var sessionAudio = false
+        private var volume = 1f
         private var timer: java.util.concurrent.ScheduledFuture<*>? = null
         private var statsTimer: java.util.concurrent.ScheduledFuture<*>? = null
         private var watchdog: java.util.concurrent.ScheduledFuture<*>? = null
         @Volatile private var writeStarted = 0L
         private var approvedName = "Mac"
+        @Volatile var clientId = ""
+            private set
         private var stopMessage = "Your Mac disconnected. Open Miraya on the Mac to connect again."
         private var configReceived = false
         private val approval = CountDownLatch(1)
@@ -175,7 +193,7 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
                         if (!closed && audioFocus != null) {
                             failureReported = true
                             stopMessage = "TV audio was interrupted by another app. Start sharing again from your Mac when you're ready."
-                            media?.silenceAudio()
+                            media?.silenceAudio(); rtc?.setPlayback(false, true, 0f)
                             Thread({ try { error("audio", stopMessage) } finally { closeSocket() } }, "Miraya audio interruption").start()
                             deadlines.schedule({ closeSocket() }, 200, TimeUnit.MILLISECONDS)
                         }
@@ -199,7 +217,7 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
                 val hello = JSONObject(String(helloPacket.payload, Charsets.UTF_8))
                 require(hello.getString("op") == "hello") { "Expected hello" }
                 if (hello.optInt("version") != 1) { error("version", "This Mac and TV use different protocol versions. Update both Miraya apps."); return }
-                val clientId = UUID.fromString(hello.getString("clientId")).toString()
+                clientId = UUID.fromString(hello.getString("clientId")).toString()
                 approvedName = hello.optString("name", "Mac").replace(Regex("[\\p{Cntrl}]"), "").take(80).ifBlank { "Mac" }
                 val stored = identity.tokenFor(clientId)
                 val supplied = hello.optString("token", "")
@@ -213,17 +231,23 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
                         if (System.nanoTime() - lastPairRequest < 5_000_000_000L) { error("busy", "Please wait a few seconds before pairing again."); return }
                         lastPairRequest = System.nanoTime()
                     }
-                    send(JSONObject().put("op", "pending"))
+                    if (hello.optString("pairing") == PairingSession.METHOD) {
+                        if (!shortPairing(hello)) return
+                    }
+                    send(JSONObject().put("op", "pending").put("stage", "approval"))
                     ui.approve(approvedName) { allow -> accepted = allow; approval.countDown() }
                     val answered = approval.await(30, TimeUnit.SECONDS)
                     ui.dismissApproval()
                     if (!running || closed) return
                     if (!answered) { error("timeout", "TV approval timed out. Try again and choose Allow on your TV."); return }
                     if (!accepted) { error("denied", "The TV declined this connection."); return }
-                    token = identity.approve(clientId)
+                    token = identity.approve(clientId, approvedName)
                 }
                 send(JSONObject().put("op", "welcome").put("version", 1).put("receiverId", identity.receiverId)
-                    .put("name", identity.name).put("token", token).put("maxWidth", 1920).put("maxHeight", 1080))
+                    .put("name", identity.name).put("token", token).put("maxWidth", 1920).put("maxHeight", 1080)
+                    .put("display", ui.displayInfo().json())
+                    .put("features", org.json.JSONArray().put("presentation-v1").put("direct-media-v1"))
+                    .put("transports", org.json.JSONArray().put(RtcSignaling.TRANSPORT).put("tcp-v1")))
                 socket.soTimeout = 10000; lastReceive = System.nanoTime()
                 timer = scheduler.scheduleWithFixedDelay({ heartbeat() }, 2, 2, TimeUnit.SECONDS)
                 while (running && !closed) {
@@ -231,11 +255,11 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
                     when (packet.type) {
                         Wire.CONTROL -> if (!control(JSONObject(String(packet.payload, Charsets.UTF_8)))) return
                         Wire.CONFIG -> {
-                            require(streaming) { "Stream has not started" }
+                            require(streaming && !paused && rtc == null && direct == null) { "This connection uses a different media transport" }
                             media!!.configure(JSONObject(String(packet.payload, Charsets.UTF_8))); configReceived = true
                         }
-                        Wire.VIDEO -> { require(streaming && configReceived) { "Video arrived before configuration" }; media!!.video(packet) }
-                        Wire.AUDIO -> { require(streaming) { "Audio arrived before start" }; media!!.audio(packet) }
+                        Wire.VIDEO -> { require(streaming && !paused && rtc == null && direct == null && configReceived) { "Video arrived before configuration" }; media!!.video(packet) }
+                        Wire.AUDIO -> { require(streaming && !paused && rtc == null && direct == null) { "Audio arrived before start" }; media!!.audio(packet) }
                     }
                 }
             } catch (_: EOFException) {
@@ -250,30 +274,151 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
             } finally { close() }
         }
 
+        private fun shortPairing(hello: JSONObject): Boolean {
+            val commitment = hello.getString("commitment")
+            require(PairingSession.validHex(commitment)) { "Invalid pairing commitment" }
+            val nonce = PairingSession.nonce()
+            send(JSONObject().put("op", "pairChallenge").put("pairing", PairingSession.METHOD).put("nonce", nonce))
+            val timeout = deadlines.schedule({ closeSocket() }, 90, TimeUnit.SECONDS)
+            socket.soTimeout = 10000
+            try {
+                fun waitFor(op: String): JSONObject {
+                    while (!closed && running) {
+                        val packet = Wire.read(input)
+                        require(packet.type == Wire.CONTROL) { "Pairing must finish before media" }
+                        val json = JSONObject(String(packet.payload, Charsets.UTF_8))
+                        when (json.optString("op")) {
+                            "ping" -> send(JSONObject().put("op", "pong").put("nonce", json.optLong("nonce")))
+                            "pong" -> Unit
+                            "stop" -> { send(JSONObject().put("op", "stopped")); throw EOFException() }
+                            op -> return json
+                            else -> throw IOException("Unexpected pairing message")
+                        }
+                    }
+                    throw EOFException()
+                }
+                val reveal = waitFor("pairReveal").getString("nonce")
+                require(PairingSession.validHex(reveal) && identity.tokenMatches(PairingSession.commitment(reveal), commitment)) { "Pairing commitment mismatch" }
+                val code = PairingSession.code(identity.fingerprint, clientId, reveal, nonce)
+                ui.onPairingCode(code)
+                send(JSONObject().put("op", "pending").put("stage", "code").put("expiresIn", 90))
+                waitFor("pairConfirm")
+                return !closed && running
+            } finally { timeout.cancel(false); ui.onPairingCode(null) }
+        }
+
+        private fun createMedia(audioEnabled: Boolean, surface: Surface): MediaPipeline =
+            MediaPipeline(surface, audioEnabled, ui::onVideoSize, { message ->
+                        if (!failureReported) {
+                            failureReported = true; stopMessage = message; error("decoder", message); closeSocket()
+                        }
+                    }, { try { send(JSONObject().put("op", "requestKeyframe")) } catch (_: Exception) { closeSocket() } }).also { it.setPicture(ui.displayInfo().presentation.mode) }
+
+        fun updatePresentation(display: TVDisplay) {
+            rtc?.setPicture(display); media?.setPicture(display.presentation.mode)
+        }
+
+        private fun ready(): JSONObject = JSONObject().put("op", "ready").put("transport", transport).apply {
+            rtc?.let { put("session", it.sessionId) }
+            put("display", ui.displayInfo().json())
+        }
         private fun control(json: JSONObject): Boolean {
             when (json.getString("op")) {
+                "mediaLoad" -> {
+                    require(!streaming) { "Stop the current session before loading media" }
+                    val surface = ui.surface()
+                    require(surface != null && surface.isValid) { "TV display is not ready" }
+                    ui.onDirectPlayback(true)
+                    direct = DirectMediaReceiver(context, surface, ui::directPlayerView, json,
+                        { send(it) }, ui::onVideoSize, { message ->
+                            if (!closed && !failureReported) {
+                                failureReported = true
+                                Thread({ try { error("mediaPlayback", message) } finally { closeSocket() } }, "Miraya media failure").start()
+                            }
+                        })
+                    streaming = true; transport = "direct-media-v1"
+                    ui.onStreaming(approvedName, true)
+                }
+                "mediaChunk" -> { direct?.acceptChunk(json) }
+                "mediaCommand" -> { require(direct != null) { "No video is loaded" }; direct!!.command(json) }
                 "ping" -> send(JSONObject().put("op", "pong").put("nonce", json.optLong("nonce")))
                 "pong" -> Unit
+                "setPresentation" -> {
+                    val mode = PictureMode.parse(json.getString("mode")) ?: throw IllegalArgumentException("Unknown picture mode")
+                    val margin = json.getDouble("edgeInsetPercent")
+                    require(margin.isFinite() && margin in 0.0..10.0 && margin == margin.toInt().toDouble()) { "Invalid screen margin" }
+                    ui.setPresentation(PresentationSettings(mode, margin.toInt())) { display ->
+                        if (!closed && running) try { scheduler.execute {
+                            try { send(JSONObject().put("op", "presentation").put("display", display.json())) } catch (_: Exception) { closeSocket() }
+                        } } catch (_: java.util.concurrent.RejectedExecutionException) { }
+                    }
+                }
                 "start" -> {
                     require(!streaming) { "Stream already started" }
                     val surface = ui.surface()
                     if (surface == null || !surface.isValid) { error("decoder", "TV display is not ready. Reopen Miraya and try again."); return false }
                     val audioEnabled = json.optBoolean("audio", false)
+                    sessionAudio = audioEnabled
+                    val initialVolume = json.optDouble("volume", 1.0)
+                    require(initialVolume.isFinite() && initialVolume in 0.0..1.0) { "Invalid audio level" }
+                    volume = initialVolume.toFloat()
                     if (audioEnabled && !requestAudioFocus()) return false
-                    media = MediaPipeline(surface, audioEnabled, ui::onVideoSize, { message ->
-                        if (!failureReported) {
-                            failureReported = true; stopMessage = message; error("decoder", message); closeSocket()
-                        }
-                    }, { try { send(JSONObject().put("op", "requestKeyframe")) } catch (_: Exception) { closeSocket() } })
+                    transport = json.optString("transport", "tcp-v1")
+                    require(transport == "tcp-v1" || transport == RtcSignaling.TRANSPORT) { "Unsupported media transport" }
+                    if (transport == RtcSignaling.TRANSPORT) {
+                        rtc = RtcMediaReceiver(context, surface, UUID.randomUUID().toString(), audioEnabled, volume, ui::onVideoSize,
+                            { signal -> send(signal) }, { message ->
+                                if (!failureReported && !closed) {
+                                    failureReported = true; stopMessage = message; error("media", message); closeSocket()
+                                }
+                            }).also { it.setPicture(ui.displayInfo()) }
+                    } else media = createMedia(audioEnabled, surface).also { it.setVolume(volume) }
                     streaming = true
                     statsTimer = scheduler.scheduleWithFixedDelay({
                         try {
-                            media?.let { send(JSONObject().put("op", "stats").put("frames", it.frames.get()).put("dropped", it.dropped.get())
-                                .put("lastPts", it.lastPts.get()).put("audioFrames", it.audioFrames.get()).put("audioFramesWritten", it.audioFramesWritten.get())) }
+                            val native = rtc
+                            if (native != null) send(native.statistics().put("display", ui.displayInfo().json()))
+                            else media?.let { send(JSONObject().put("op", "stats").put("frames", it.frames.get()).put("dropped", it.dropped.get())
+                                .put("lastPts", it.lastPts.get()).put("lastDecodedPts", it.lastDecodedPts.get()).put("recoveries", it.recoveries.get()).put("audioFrames", it.audioFrames.get()).put("audioFramesWritten", it.audioFramesWritten.get())) }
                         } catch (_: Exception) { closeSocket() }
                     }, 250, 250, TimeUnit.MILLISECONDS)
                     ui.onStreaming(approvedName, true)
-                    send(JSONObject().put("op", "ready"))
+                    send(ready())
+                }
+                "pause" -> {
+                    require(streaming && !paused && direct == null) { "Stream is not playing" }
+                    if (rtc != null) rtc?.setPlayback(sessionAudio, true, volume) else { media?.close(); media = null }
+                    paused = true; configReceived = false
+                    audioFocus?.let { audioManager.abandonAudioFocusRequest(it) }; audioFocus = null
+                    ui.onPaused(true); send(JSONObject().put("op", "paused"))
+                }
+                "resume", "reconfigure" -> {
+                    require(streaming && direct == null && (paused || json.getString("op") == "reconfigure")) { "Stream is not paused" }
+                    val surface = ui.surface()
+                    require(surface != null && surface.isValid) { "TV display is unavailable" }
+                    val audio = json.optBoolean("audio", sessionAudio)
+                    if (audio && audioFocus == null && !requestAudioFocus()) return false
+                    if (!audio && sessionAudio) {
+                        audioFocus?.let { audioManager.abandonAudioFocusRequest(it) }; audioFocus = null
+                    }
+                    sessionAudio = audio
+                    val gain = json.optDouble("volume", volume.toDouble())
+                    require(gain.isFinite() && gain in 0.0..1.0) { "Invalid audio level" }
+                    volume = gain.toFloat()
+                    if (rtc != null) rtc?.setPlayback(audio, false, volume)
+                    else { media?.close(); media = createMedia(audio, surface).also { it.setVolume(volume) } }
+                    paused = false; configReceived = false
+                    ui.onPaused(false); send(ready())
+                }
+                "rtcOffer", "rtcCandidate" -> {
+                    require(streaming && rtc != null) { "Start native media before signaling" }
+                    rtc!!.receive(json)
+                }
+                "setVolume" -> {
+                    require(streaming) { "Stream has not started" }
+                    val gain = json.getDouble("volume")
+                    require(gain.isFinite() && gain in 0.0..1.0) { "Invalid audio level" }
+                    volume = gain.toFloat(); media?.setVolume(volume); rtc?.setPlayback(sessionAudio, paused, volume)
                 }
                 "stop" -> {
                     stopMessage = "Sharing stopped. Connect from your Mac whenever you're ready."
@@ -302,8 +447,9 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
             if (closed) return
             closed = true; approval.countDown(); timer?.cancel(false); statsTimer?.cancel(false); watchdog?.cancel(false); closeSocket()
             audioFocus?.let { try { audioManager.abandonAudioFocusRequest(it) } catch (_: Exception) { } }; audioFocus = null
-            media?.close(); media = null
-            ui.dismissApproval()
+            direct?.close(); direct = null; ui.onDirectPlayback(false)
+            rtc?.close(); rtc = null; media?.close(); media = null
+            ui.dismissApproval(); ui.onPairingCode(null)
             if (streaming && running) { ui.onStreaming(approvedName, false); ui.onStatus("Ready to share", stopMessage) }
             streaming = false
         }
@@ -326,3 +472,7 @@ class ReceiverServer(private val context: Context, val identity: Identity, priva
         } catch (_: Exception) { "Check TV network settings for its IP address" }
     }
 }
+
+private fun TVDisplay.json() = JSONObject().put("width", width).put("height", height)
+    .put("panelWidth", panelWidth).put("panelHeight", panelHeight).put("refreshRate", refreshRate)
+    .put("mode", presentation.mode.wire).put("edgeInsetPercent", presentation.edgeInsetPercent)

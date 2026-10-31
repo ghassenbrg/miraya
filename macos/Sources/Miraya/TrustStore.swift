@@ -1,7 +1,7 @@
 import Foundation
 import MirayaCore
 
-struct TrustedReceiver: Codable, Identifiable {
+struct TrustedReceiver: Codable, Identifiable, Equatable, Sendable {
     let id: String
     let name: String
     let fingerprint: String

@@ -7,6 +7,9 @@ if [[ -z "${ANDROID_HOME:-}" ]]; then
   exit 1
 fi
 MODE=${1:-debug}
+# Optimized test copies are signed separately after validation. Do not leave an
+# older one beside fresh outputs where it could be mistaken for this build.
+rm -f "$ROOT/dist/Miraya-TV-optimized-test.apk"
 case "$MODE" in
   debug) TASK=assembleDebug ;;
   release) TASK=assembleRelease ;;

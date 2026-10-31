@@ -1,0 +1,826 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "purpose": "Clean local review package; no application implementation",
+  "files": [
+    {
+      "path": "ACCESSIBILITY.md",
+      "bytes": 5899,
+      "sha256": "a65daa4d410bccdc68d2058364db4b86e1224976f3ea0c06f6ffb62daf4d61fe"
+    },
+    {
+      "path": "CRITIQUE.md",
+      "bytes": 5333,
+      "sha256": "52aab9013d4af76f65f452cae1ac481373f17280ee1b70f2875ca8947ea595fa"
+    },
+    {
+      "path": "DESIGN-SYSTEM.md",
+      "bytes": 9527,
+      "sha256": "6095721d47fdc6f38eadfbf62466e1107d70dbcf8d42ea01c0209fe7edae5873"
+    },
+    {
+      "path": "FUNCTIONAL-AUDIT.md",
+      "bytes": 6933,
+      "sha256": "dc2c76d4a06ab3aa7e6b37de4b2b48a81da6ab789a01b41858df3e3064432813"
+    },
+    {
+      "path": "INTERACTIONS.md",
+      "bytes": 10206,
+      "sha256": "d738dac68c0ffb0b63cf249af4af7c65c51433618927f28b349370a3e49f7855"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6244,
+      "sha256": "c7f5a6544ee47b64e23144699aa3f510dc8c5defe10c792e5c69aca2cd2e764b"
+    },
+    {
+      "path": "REVIEW-CHECKLIST.md",
+      "bytes": 2332,
+      "sha256": "89aa2c3391041e7b0e010e9a6289562c61fc95981260cb8d6b9ebe9fb678fe47"
+    },
+    {
+      "path": "VALIDATION.md",
+      "bytes": 6705,
+      "sha256": "97ed5ee2ca8c2a3e8ae4455d7d99d3e137caf9861b77d6ae7593a9385d1b5e4a"
+    },
+    {
+      "path": "assets/asset-manifest.json",
+      "bytes": 3604,
+      "sha256": "025bbbc5b9c7d2f44189bc0925631b06b51d810f61f42a4a2ae3df316a0e11a2"
+    },
+    {
+      "path": "assets/backgrounds/tv-beam-lake.png",
+      "bytes": 1632581,
+      "sha256": "7a63ae6927a7c7877b01eefc1bf5eef5f6f12baad34e135c297f0e6427310ca2"
+    },
+    {
+      "path": "assets/demo-content.svg",
+      "bytes": 1268,
+      "sha256": "0ef12d7e6606129231f0f3e9743f785cc89798591f45aa150f21a286b446f4d9"
+    },
+    {
+      "path": "assets/icons/android-tv/adaptive-background.svg",
+      "bytes": 356,
+      "sha256": "10c6fdb6b4be23ba5fcef6e881a2b07ac4f4cfdea716329082008906bdb7ba27"
+    },
+    {
+      "path": "assets/icons/android-tv/adaptive-foreground.svg",
+      "bytes": 1978,
+      "sha256": "24a647f160c744478b0c4ee335d2b3dcb327ae99c959d8505eb2948c1118938a"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-1024.png",
+      "bytes": 682571,
+      "sha256": "8b75a3bfe14e679ee37ee17eb4d23bf8636ae9474891a1bf38c68a52a164ce9c"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-1024.svg",
+      "bytes": 1959,
+      "sha256": "21e0ae238404153fb97880e0f3d6b77ec4a803e5747119f159b4af61deae23d6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-128.png",
+      "bytes": 18760,
+      "sha256": "6a0bfdb5d67ebde240e4eac49cce0a32bb88cf114f275161035a5e4fb435a745"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-128.svg",
+      "bytes": 1959,
+      "sha256": "21e0ae238404153fb97880e0f3d6b77ec4a803e5747119f159b4af61deae23d6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-16.png",
+      "bytes": 588,
+      "sha256": "079032c0156c64f32063a6758dde38bb3f6769c1760fbad4caa3c24a18bb689a"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-16.svg",
+      "bytes": 638,
+      "sha256": "a60447a33443f9d4b2b5e8173c762298748e83086c75b0709ef0be7d9a2809c6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-256.png",
+      "bytes": 58955,
+      "sha256": "6e6dd742fdc50d473ec318b079b1c21e53e875026cae20c82e5adc2cdbb155d3"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-256.svg",
+      "bytes": 1959,
+      "sha256": "21e0ae238404153fb97880e0f3d6b77ec4a803e5747119f159b4af61deae23d6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-32.png",
+      "bytes": 971,
+      "sha256": "2d581347ccf6e55e58f07ff9ad0f1687b92f1de5bebdb693468724602abd1a38"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-32.svg",
+      "bytes": 638,
+      "sha256": "7af0e32ccde1dfcf38d6a583171735a584d156b247d844ac6c7e60df15d9d88c"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-512.png",
+      "bytes": 204979,
+      "sha256": "71494750fae561cab4e3ccb68d94c24ef79d24a2c3c7033dd9c06bf4b0f6ba2c"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-512.svg",
+      "bytes": 1959,
+      "sha256": "21e0ae238404153fb97880e0f3d6b77ec4a803e5747119f159b4af61deae23d6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-64.png",
+      "bytes": 6321,
+      "sha256": "c4e54eb6b302577671d3b12cce8ae5ebbefe5a7a3ec5d1dc42ab79c6e96bcf37"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-64.svg",
+      "bytes": 1959,
+      "sha256": "21e0ae238404153fb97880e0f3d6b77ec4a803e5747119f159b4af61deae23d6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-artwork-master.png",
+      "bytes": 1205201,
+      "sha256": "639b683ddda2257b275a073af8f2f8a69b69d28dec49477ed8d7ec74fb1d81b5"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-master.svg",
+      "bytes": 1959,
+      "sha256": "21e0ae238404153fb97880e0f3d6b77ec4a803e5747119f159b4af61deae23d6"
+    },
+    {
+      "path": "assets/icons/android-tv/icon-material-master.svg",
+      "bytes": 1607461,
+      "sha256": "61d0d8014d6b3cc67e97407b6cf0d02f731e1f050536948d398e95532f4a28ef"
+    },
+    {
+      "path": "assets/icons/android-tv/launcher-banner-1920.png",
+      "bytes": 375038,
+      "sha256": "c3df014344bef1d359b17f125a37b4549e41c6159eb831bad77f896e41fadef6"
+    },
+    {
+      "path": "assets/icons/android-tv/launcher-banner-320.png",
+      "bytes": 25600,
+      "sha256": "373e95cadf33325e5c0e5ec33c76e800d8f95d4c913fd659edd40d3d77374947"
+    },
+    {
+      "path": "assets/icons/android-tv/launcher-banner-vector.svg",
+      "bytes": 10552,
+      "sha256": "db42e3953b339dd470ceb2d8f645f815602a3703521834ef1026fc5abb595a6e"
+    },
+    {
+      "path": "assets/icons/android-tv/launcher-banner.svg",
+      "bytes": 919206,
+      "sha256": "8b027cb2fc9cec3970523f80b442dcc49a6da44be2dfa3fe4c598166d0ba01a4"
+    },
+    {
+      "path": "assets/icons/ios-future/icon-1024.png",
+      "bytes": 650753,
+      "sha256": "637075b465c6fcf4fdd04b1a64294b0b275ee7d210b571a74b067fbb73262c09"
+    },
+    {
+      "path": "assets/icons/ios-future/icon-artwork-master.png",
+      "bytes": 1155383,
+      "sha256": "cd0a5332172658eb529222a813db58f368abf5f67412da7e78f8a68d2f35dc17"
+    },
+    {
+      "path": "assets/icons/ios-future/icon-master.svg",
+      "bytes": 1766,
+      "sha256": "db5390932f476af407e4f9be813734fa99811b8d446df0ff3dee1472f0f9a821"
+    },
+    {
+      "path": "assets/icons/ios-future/icon-material-master.svg",
+      "bytes": 1541036,
+      "sha256": "1587c02076c4878c9ba98563c2a2aa7742fe1e25aa0e3e091daec6817c9d448a"
+    },
+    {
+      "path": "assets/icons/macos/icon-1024.png",
+      "bytes": 710370,
+      "sha256": "f78cecdd5175332e2cc3a24ed6bf5291a1b44a7b35ea591bfc55e3a417953c4a"
+    },
+    {
+      "path": "assets/icons/macos/icon-1024.svg",
+      "bytes": 2897,
+      "sha256": "c527bb4e13265f8a0c31279b5a8acecb02f1e767ea70b51b8f31a6d913769240"
+    },
+    {
+      "path": "assets/icons/macos/icon-128.png",
+      "bytes": 18493,
+      "sha256": "330a3db7b4d53031bf92b476109f6049f43f0a3deeb32da171113b5f4ffa655b"
+    },
+    {
+      "path": "assets/icons/macos/icon-128.svg",
+      "bytes": 2897,
+      "sha256": "c527bb4e13265f8a0c31279b5a8acecb02f1e767ea70b51b8f31a6d913769240"
+    },
+    {
+      "path": "assets/icons/macos/icon-16.png",
+      "bytes": 584,
+      "sha256": "001016bbc2cc558772542fcacd9e4b0626c5e1974c16b08c394aef667b62c9de"
+    },
+    {
+      "path": "assets/icons/macos/icon-16.svg",
+      "bytes": 636,
+      "sha256": "ce337c08609521636cd0b8802314f220df112842c2377a74886308b4bcd9b011"
+    },
+    {
+      "path": "assets/icons/macos/icon-256.png",
+      "bytes": 58953,
+      "sha256": "025a8e7bd391fe31c84e440284bdb4044570f0a61122aee4d5e10c0a6486fa92"
+    },
+    {
+      "path": "assets/icons/macos/icon-256.svg",
+      "bytes": 2897,
+      "sha256": "c527bb4e13265f8a0c31279b5a8acecb02f1e767ea70b51b8f31a6d913769240"
+    },
+    {
+      "path": "assets/icons/macos/icon-32.png",
+      "bytes": 956,
+      "sha256": "3d38cd606064854b99c9126412187d5092103bea7fddaa96f61750bd9801ee1e"
+    },
+    {
+      "path": "assets/icons/macos/icon-32.svg",
+      "bytes": 636,
+      "sha256": "060274b7fc95fa2cfe068a429ac4fc7de5c63e9404c0c9ad73773a04907bfc97"
+    },
+    {
+      "path": "assets/icons/macos/icon-512.png",
+      "bytes": 210264,
+      "sha256": "cb83e87cdc290f46067c6609c8b66046a87b6a96352c2faf16f9dc0982b52f32"
+    },
+    {
+      "path": "assets/icons/macos/icon-512.svg",
+      "bytes": 2897,
+      "sha256": "c527bb4e13265f8a0c31279b5a8acecb02f1e767ea70b51b8f31a6d913769240"
+    },
+    {
+      "path": "assets/icons/macos/icon-64.png",
+      "bytes": 6148,
+      "sha256": "743e88094860c75b42b257d33512614246fcc60ffd8b6d8da04ead31e8e62be3"
+    },
+    {
+      "path": "assets/icons/macos/icon-64.svg",
+      "bytes": 2897,
+      "sha256": "c527bb4e13265f8a0c31279b5a8acecb02f1e767ea70b51b8f31a6d913769240"
+    },
+    {
+      "path": "assets/icons/macos/icon-artwork-master.png",
+      "bytes": 1255607,
+      "sha256": "36394707c6844d1b68873f3cfcff1c0df38975dd24a2ba5f99ef84f63c6a8cc5"
+    },
+    {
+      "path": "assets/icons/macos/icon-master.svg",
+      "bytes": 2897,
+      "sha256": "c527bb4e13265f8a0c31279b5a8acecb02f1e767ea70b51b8f31a6d913769240"
+    },
+    {
+      "path": "assets/icons/macos/icon-material-master.svg",
+      "bytes": 1674663,
+      "sha256": "bf42c2e18a5e46719780b66e20667a32a1a1501cb6b485004e90c72f1280fd0c"
+    },
+    {
+      "path": "assets/icons/roles/receiver-mark.svg",
+      "bytes": 1932,
+      "sha256": "9d0f7e77311e72542531fe7eb1c2604840b2aec3f694d6f9e7f1bb473dcc2c41"
+    },
+    {
+      "path": "assets/icons/roles/receiver-mono.svg",
+      "bytes": 1692,
+      "sha256": "c2e7474c15a3bb4055d36daf1ee3803cd6a38cb022623b208779a39d42908b46"
+    },
+    {
+      "path": "assets/icons/roles/sender-mark.svg",
+      "bytes": 1910,
+      "sha256": "2ee16b814295333b19a3b09d263ad47a8122dbdd28e7b31fa72132c729be36e9"
+    },
+    {
+      "path": "assets/icons/roles/sender-mono.svg",
+      "bytes": 1680,
+      "sha256": "763c2a8f009d1c4d54b6574a252dd2ebd6e46fa51a305aed82f5bde2ef3223bb"
+    },
+    {
+      "path": "assets/logos/beam-connected.svg",
+      "bytes": 1905,
+      "sha256": "eaca38496f7dc810d95a2d309a7735b4c6170cc5685d26178b3be4e8bb2fd431"
+    },
+    {
+      "path": "assets/logos/beam-connecting.svg",
+      "bytes": 1916,
+      "sha256": "68f3481571e1541d1a567f7e32eda02c7575aeecd0b85e7e36c282e3f56267ba"
+    },
+    {
+      "path": "assets/logos/beam-discovering.svg",
+      "bytes": 1930,
+      "sha256": "0ed24fda4363e424b5483c6642d0732bbc8f8d29fadbc4046f813dbff82af283"
+    },
+    {
+      "path": "assets/logos/beam-error.svg",
+      "bytes": 1572,
+      "sha256": "cc9f30b2452627c12bf10ea92a249a42e347cc30faeb34531038ebd2ac24b578"
+    },
+    {
+      "path": "assets/logos/beam-idle.svg",
+      "bytes": 1564,
+      "sha256": "48b0df749dd2f02ada4cbdef8f0394c041d8046f681fef30b2de17d5f4c873ba"
+    },
+    {
+      "path": "assets/logos/beam-mark-light.svg",
+      "bytes": 1712,
+      "sha256": "28ea8f034f41b8badcc25b2661ff1d69491fd60dfea9cbfb6047e91f25ebd6d7"
+    },
+    {
+      "path": "assets/logos/beam-mark.svg",
+      "bytes": 1883,
+      "sha256": "11925ddcb69ced6e59424eab8289e387f4662f5231c233aa7318ec1a4da87101"
+    },
+    {
+      "path": "assets/logos/beam-micro.svg",
+      "bytes": 639,
+      "sha256": "dea3c7c3a3467b93c553f07f2e7aac7cdee9656fff6da8b2a86807369eca421e"
+    },
+    {
+      "path": "assets/logos/beam-mono-dark.svg",
+      "bytes": 1676,
+      "sha256": "2c2badcd46ddb278f04248b0401e2c3e83ba6b87a95f45fe85e1d13c8e50f686"
+    },
+    {
+      "path": "assets/logos/beam-mono-white.svg",
+      "bytes": 1682,
+      "sha256": "1f240b4becb039d6ebac74463c3dcb1c3e7c92d6b84f3978c45717c3d185def8"
+    },
+    {
+      "path": "assets/logos/beam-offline.svg",
+      "bytes": 1590,
+      "sha256": "8a23a2bea5ad74d32b4a9856da19f5985707dfe87337bd0b06572e48894b4dc7"
+    },
+    {
+      "path": "assets/logos/beam-pairing.svg",
+      "bytes": 1883,
+      "sha256": "a737d5a7fc22efeab5c986b478f3bae9579f61ca6a91d0748b503145b1e8b169"
+    },
+    {
+      "path": "assets/logos/beam-paused.svg",
+      "bytes": 1874,
+      "sha256": "e2eeae27e9d87409be6238c1465b7c5f07d658ef827ddd1ac63ebde73a53c8b7"
+    },
+    {
+      "path": "assets/logos/logo-horizontal-dark.svg",
+      "bytes": 5266,
+      "sha256": "19b3b1b9ab7f96319ef26576fda48ada2971c8dfee05b2b8e8e28d0a4f1e3659"
+    },
+    {
+      "path": "assets/logos/logo-horizontal-white.svg",
+      "bytes": 5492,
+      "sha256": "fd95471ba6af82250dff5c098fbbd4d27a5c45c20dec70c3fe3057b3957d51da"
+    },
+    {
+      "path": "assets/logos/logo-vertical-dark.svg",
+      "bytes": 5264,
+      "sha256": "c709f6864138eb83471a945fddef40b9eb4a51ef14f7b8e0105e30bbf4499427"
+    },
+    {
+      "path": "assets/logos/logo-vertical-white.svg",
+      "bytes": 5490,
+      "sha256": "0ed17e67e6156b1f6b9d5463fbdec984adcbd0a736ad06c7ca669c1a16dcc708"
+    },
+    {
+      "path": "assets/logos/wordmark-dark.svg",
+      "bytes": 3802,
+      "sha256": "6aa4e78dade656d2e0971d17bf5edb5b0373e3c7567a271ddda9f0187e4bc084"
+    },
+    {
+      "path": "assets/logos/wordmark-white.svg",
+      "bytes": 3802,
+      "sha256": "18c7f8b3120ddc33230d5e0626571aa45522061d186290cdd0c2948d7fc449ec"
+    },
+    {
+      "path": "assets/source/receiver-outline.json",
+      "bytes": 5101,
+      "sha256": "01c4c67b9582f0e1d153564f3cb193f25514dd75bf5b2bcb965dbd84e366f910"
+    },
+    {
+      "path": "assets/source/wordmark-outline.json",
+      "bytes": 3597,
+      "sha256": "860c1133e29a30996805e81eeb1f0454c672774281eeedde2f6cf3fd173f556e"
+    },
+    {
+      "path": "assets/ui/area.svg",
+      "bytes": 496,
+      "sha256": "874281823fb477b15e74c32dda14fcad4956bcf6961fba673417d741b41d8fa1"
+    },
+    {
+      "path": "assets/ui/check.svg",
+      "bytes": 425,
+      "sha256": "aab5f4962dbcb3d5df44495997bc4bc4c4ee37cbed577aad2ad5bf82857d7084"
+    },
+    {
+      "path": "assets/ui/chevron.svg",
+      "bytes": 425,
+      "sha256": "2c8c0feea5cb413b1cfe84eace3335b027d4f623ff33f98c2622aa19eab8f821"
+    },
+    {
+      "path": "assets/ui/close.svg",
+      "bytes": 431,
+      "sha256": "cdcacd17d3153b425807375cf15fb25f6feb3850ad9c68a5caef8512a9257639"
+    },
+    {
+      "path": "assets/ui/display.svg",
+      "bytes": 477,
+      "sha256": "713a4bf8f040387eeceb8634d4021a3b378a06f13e597f21e84326d212c8573c"
+    },
+    {
+      "path": "assets/ui/down.svg",
+      "bytes": 422,
+      "sha256": "aa15e2b273b3dee83434135ba3963566099a312877a36fb64e4730e81ae163a9"
+    },
+    {
+      "path": "assets/ui/file.svg",
+      "bytes": 450,
+      "sha256": "198aa528a3ea38f46ac231f596daf24be5dcddd48dbf7d7609155a18a4206c0d"
+    },
+    {
+      "path": "assets/ui/info.svg",
+      "bytes": 458,
+      "sha256": "50101f90eb468383f803a99f8d26bab3a6190c531c2e977c529223b9180606a1"
+    },
+    {
+      "path": "assets/ui/keyboard.svg",
+      "bytes": 505,
+      "sha256": "91f7b932fd909224f5b54b6092f5890bcc81facdf497e0e5a761fe1a33c3554c"
+    },
+    {
+      "path": "assets/ui/link.svg",
+      "bytes": 490,
+      "sha256": "e46b69f89f761fb5db6cee416323816da0c6edc1ac20705e8cd005d2a6517afd"
+    },
+    {
+      "path": "assets/ui/lock.svg",
+      "bytes": 481,
+      "sha256": "b6ff6ea9c6123bdb2316f7ae1879bc108be84cd9aa56c52ab060f3799154d04a"
+    },
+    {
+      "path": "assets/ui/metrics.svg",
+      "bytes": 435,
+      "sha256": "2f5ee47ad74da4f8640ab08a45c16db862dccb2e83b429ab8782ba4b214bde86"
+    },
+    {
+      "path": "assets/ui/muted.svg",
+      "bytes": 450,
+      "sha256": "36021ff67a725f3958a025bf992576aaec435ea619190926706bfacca0bc26e0"
+    },
+    {
+      "path": "assets/ui/pause.svg",
+      "bytes": 443,
+      "sha256": "3a30c1e3706be52d508fb9595bde3ccedb8f2753bec967c50c224bb2ec9f8ecc"
+    },
+    {
+      "path": "assets/ui/picture-fill.svg",
+      "bytes": 473,
+      "sha256": "2c7a16de2e81b37dd383177ea607c7b49dfca439b104b144dee9d4ac6b7af348"
+    },
+    {
+      "path": "assets/ui/picture-fit.svg",
+      "bytes": 487,
+      "sha256": "70a7f2760ae849b1d6caaee950b30f6151545d4a9f919c2e47958872673f3c6e"
+    },
+    {
+      "path": "assets/ui/picture-stretch.svg",
+      "bytes": 499,
+      "sha256": "8be7e7bb8556bda2db975deb5acaf0259b789ae1f49b1db041fb2376e3b8ab50"
+    },
+    {
+      "path": "assets/ui/play.svg",
+      "bytes": 425,
+      "sha256": "e3fa1be0a6f5f184e21279b001ea317c6bc48868996485ebc20b922fb0fc576b"
+    },
+    {
+      "path": "assets/ui/refresh.svg",
+      "bytes": 446,
+      "sha256": "40dcebec6cf8cec443e06f6a3111fe2260f17e300b6662b4c43cb9ba55d7c92d"
+    },
+    {
+      "path": "assets/ui/shield.svg",
+      "bytes": 459,
+      "sha256": "2a294a6da4dcdbc12a7b05a771935091fa8b67ebbe76fa608d38cc129476d41a"
+    },
+    {
+      "path": "assets/ui/speaker.svg",
+      "bytes": 469,
+      "sha256": "d3788e1e5bdb3050a7af1a79d145c2b8be93d1d84d126042eb3589f38ef9ac8c"
+    },
+    {
+      "path": "assets/ui/stop.svg",
+      "bytes": 481,
+      "sha256": "d0c27939f0ce39b8228fbb11c7721b0814d4e22648f9c7744a775fe8215e25ce"
+    },
+    {
+      "path": "assets/ui/warning.svg",
+      "bytes": 444,
+      "sha256": "2e66229c0a1c5be62053a7c070b931bb6778b1801dd4361eb0ee8f4916c47df7"
+    },
+    {
+      "path": "assets/ui/window.svg",
+      "bytes": 488,
+      "sha256": "4ce289168767bbf8263de163d7aeda22dc33cd12f8231b8c1079b5966951e804"
+    },
+    {
+      "path": "audit/accessibility-validation.json",
+      "bytes": 3249,
+      "sha256": "dedc715d690a7fc680fc07459b7f54f4488d96f157f8f5854b1d89a68e8dae36"
+    },
+    {
+      "path": "audit/approved-beam-reference.jpg",
+      "bytes": 244414,
+      "sha256": "5d42baaa1876cee640b6590a773156f3136726c255e440f97920cc31da58929b"
+    },
+    {
+      "path": "audit/asset-validation.json",
+      "bytes": 1738,
+      "sha256": "b098185d9a878e47a7db992837d86f433a2777ce7194817a7ad7fbc10eccef94"
+    },
+    {
+      "path": "audit/interaction-validation.json",
+      "bytes": 7038,
+      "sha256": "bb8969c7e6acf035c1680eb738bfb4652ef5a6ad199ed70c72d99bee66586454"
+    },
+    {
+      "path": "audit/product-inventory.json",
+      "bytes": 24819,
+      "sha256": "19f35d373a31119eae0c503c5cd3e8ee8bdf122e3989a5b55301d35da5640a92"
+    },
+    {
+      "path": "audit/render-validation.json",
+      "bytes": 59033,
+      "sha256": "5c906ead1069fd56f933cdf900b60aab0231b61e2e65e054d1edc0939228d957"
+    },
+    {
+      "path": "audit/repository-baseline.json",
+      "bytes": 63839,
+      "sha256": "bbd61bb8644a0f90eef8ee4ce7b8554196313389c1f7e38c3e5ce18a9c7123fe"
+    },
+    {
+      "path": "audit/scenic-background-validation.json",
+      "bytes": 18204,
+      "sha256": "a7a13b97c4df6fe49916735831ca7eb921c178c4c0e6af8177258681778a15fa"
+    },
+    {
+      "path": "audit/scope-validation.json",
+      "bytes": 363,
+      "sha256": "d797f81d0126cd2ce98795ec55075d31f2072a34b52668791ba2d33c1fcb9177"
+    },
+    {
+      "path": "index.html",
+      "bytes": 2489,
+      "sha256": "60455e37f170955be30f14e9f3313657993e00dbb742923de09d673055227f6c"
+    },
+    {
+      "path": "previews/brand-board.png",
+      "bytes": 494069,
+      "sha256": "f71c0bf6f19f4970af97d725fd9c6253dee9856f2ecd70495145f64be74a93b1"
+    },
+    {
+      "path": "previews/design-system-board.png",
+      "bytes": 485447,
+      "sha256": "c227819e15a2bfcfa44e312c37195f500bd625946ea1b705a61f293acfc20504"
+    },
+    {
+      "path": "previews/icon-board.png",
+      "bytes": 795462,
+      "sha256": "46a592246baaa02e48845447ba6631f4face71d0fb7bb83fabae0271310de334"
+    },
+    {
+      "path": "previews/mac-compact.png",
+      "bytes": 47995,
+      "sha256": "4a73dd1cc849eb16a060c60a5bd0886f04ac6d41cf14084d04fcc8c124c8f91a"
+    },
+    {
+      "path": "previews/mac-connection-details.png",
+      "bytes": 51999,
+      "sha256": "2e47ac32abbfb350a5f6d6351b903ae6eb4a12ab63100e580c3717708a193eb7"
+    },
+    {
+      "path": "previews/mac-dark-live.png",
+      "bytes": 54973,
+      "sha256": "41d02efb7f71e57a777436a8a4e06f3d6b90b2cba4311b471a685689a527c7d1"
+    },
+    {
+      "path": "previews/mac-direct-media-live.png",
+      "bytes": 52109,
+      "sha256": "e5723089d8b51385168dd1de26ad8b9fbf794be243f3ad827a9fb9d595662b21"
+    },
+    {
+      "path": "previews/mac-direct-media-ready.png",
+      "bytes": 52127,
+      "sha256": "86d117491d9c37df68b00dbaddfcceeb1d09fe28f65ef8ec005f5b8029efd16b"
+    },
+    {
+      "path": "previews/mac-error-recovery.png",
+      "bytes": 44669,
+      "sha256": "e3e8525797e92f719d0121507ae6b61ba1f0c4394237cfa73da221155b369f58"
+    },
+    {
+      "path": "previews/mac-live.png",
+      "bytes": 53941,
+      "sha256": "fbc29195bc174cd8cc638cb7d682aad1ca220aa8d95ff59207d26796294ae3c8"
+    },
+    {
+      "path": "previews/mac-manual.png",
+      "bytes": 36503,
+      "sha256": "2b305c5d25b9c83b63a2459c8adaa3755d64ed4c678383f7462a6fc2faf2375d"
+    },
+    {
+      "path": "previews/mac-pairing.png",
+      "bytes": 42042,
+      "sha256": "ae13938f79adb847e9bef70f6b6faa6639630d58e7819d7c7bb278a3f0b2011a"
+    },
+    {
+      "path": "previews/mac-paused.png",
+      "bytes": 55162,
+      "sha256": "9edadd75f47b57e3998b046364ee118bfb209d249e8c71820c92948a2f79b120"
+    },
+    {
+      "path": "previews/mac-ready.png",
+      "bytes": 49240,
+      "sha256": "9f09d94c8bdea0a22fb47620451a2f8c354b8a23df0fb3a02b34a281f647ec8f"
+    },
+    {
+      "path": "previews/mac-trusted-devices.png",
+      "bytes": 38080,
+      "sha256": "778801a52ba3beaea66a06a2cda1c69476d2683ea684b10ef44cf900226b8687"
+    },
+    {
+      "path": "previews/review-overview.png",
+      "bytes": 1828415,
+      "sha256": "b3ae348ef6c57068cfaffb64e8a3ded01e274694fa9a52dd8a14d0307e671a7e"
+    },
+    {
+      "path": "previews/small-icon-test.png",
+      "bytes": 1197175,
+      "sha256": "66510f298ceb6efb16a3327cfec408fdfc5fd0273251a40220537f4ba95d3722"
+    },
+    {
+      "path": "previews/tv-approval.png",
+      "bytes": 1910355,
+      "sha256": "ec4363ef94fd927c46175fa57413c046ffc1fb556ecde1ae8d1ec68687dcb8ca"
+    },
+    {
+      "path": "previews/tv-controls.png",
+      "bytes": 1288828,
+      "sha256": "6da98f61931485eec55f61bef7518fdf83d91d895a115fee2b0047ccec0d3d64"
+    },
+    {
+      "path": "previews/tv-details.png",
+      "bytes": 1202122,
+      "sha256": "51789201d33ddbf33a13922e286ea70d2fed449db076ff29e7b08f84d804b4c7"
+    },
+    {
+      "path": "previews/tv-direct-media-controls.png",
+      "bytes": 1317311,
+      "sha256": "85a4324858bfa9c501f5acb9163e1d25a720be73690f4797ef500119f8f24e94"
+    },
+    {
+      "path": "previews/tv-live.png",
+      "bytes": 1853023,
+      "sha256": "ab6d51123d83989c5c9733a72386bf4a6c2d5868d91cf3a68172f61e453137bb"
+    },
+    {
+      "path": "previews/tv-pairing.png",
+      "bytes": 1928915,
+      "sha256": "253b607902256b4c51d0e30b657a604e712206efc1ddba78b1254468a5fa7846"
+    },
+    {
+      "path": "previews/tv-paused.png",
+      "bytes": 1274148,
+      "sha256": "a46c0fb5e98da3f9dde7676693e8b20e2c77d8f36067958aa886dfc8072622b9"
+    },
+    {
+      "path": "previews/tv-picture-modes.png",
+      "bytes": 1020685,
+      "sha256": "130d503d3d6674aa95e9f0f0603a3eb8f9258ca71233f0ee2b6c022c2c5b1b9a"
+    },
+    {
+      "path": "previews/tv-ready.png",
+      "bytes": 2031050,
+      "sha256": "4bbbdb6bb259e01e87d140c875a6e6cb132523a407c632eef4cb1605a7fcfb0b"
+    },
+    {
+      "path": "previews/tv-trusted-macs.png",
+      "bytes": 1161237,
+      "sha256": "8b1f827bc6bba2a7ddef23ae867d0402f44517512f43ddc8bd3a9371a5194673"
+    },
+    {
+      "path": "prototype.js",
+      "bytes": 77017,
+      "sha256": "acd5fff81784c57790f8ab8b82eaf719679667a4eb3bd88cff3dcf77754e5f0f"
+    },
+    {
+      "path": "review-overview.html",
+      "bytes": 5943,
+      "sha256": "1a0b7d911ea6c834aa994206224808d249ff6c3c588b8c20dc157cbd22910aab"
+    },
+    {
+      "path": "studies/IMAGE-PROVENANCE.md",
+      "bytes": 4342,
+      "sha256": "144f31c217ebafe974f4075659618c437b3978e64199129777f5eee7db50e856"
+    },
+    {
+      "path": "studies/beam-material-study.png",
+      "bytes": 1479419,
+      "sha256": "b43ec977a911bde61993dd0e3038dc65d293e69566dac91e000592bd428905d6"
+    },
+    {
+      "path": "studies/imagegen-prompts.json",
+      "bytes": 5049,
+      "sha256": "5a8fc17e4ac0717fb6bc6550566b36fd478f0d178c239dfc2de445d49c1beb13"
+    },
+    {
+      "path": "studies/receiver-material-v1.png",
+      "bytes": 1200239,
+      "sha256": "4f99b98fd8246baee733e7af29313fba885e134a6a2a4ace10a1e3cc580c7aaa"
+    },
+    {
+      "path": "studies/receiver-v2-prompt.txt",
+      "bytes": 1213,
+      "sha256": "525790cacb1faf4508f380d03606877ed7438a5b9471b4042a417adec3425faf"
+    },
+    {
+      "path": "studies/tv-background-prompt.json",
+      "bytes": 2159,
+      "sha256": "a11977315e7b8f31a4b60dbd980e428a585168d3f02e9a297ac21a84d2729766"
+    },
+    {
+      "path": "studies/tv-before/controls.png",
+      "bytes": 149433,
+      "sha256": "6e94f07bf8504f1afe87f3d18418ce72ed71f9459c44da322acd5e752acfa7cd"
+    },
+    {
+      "path": "studies/tv-before/pairing.png",
+      "bytes": 365142,
+      "sha256": "72eb68a4aa97ce3466e2d143369cb89f9f7d7fad42cd79dccf3c422735973f5d"
+    },
+    {
+      "path": "studies/tv-before/ready.png",
+      "bytes": 351746,
+      "sha256": "2e572071489f0677198160df987c69f8ef7253ee555df505bfe4112564f73215"
+    },
+    {
+      "path": "styles.css",
+      "bytes": 32193,
+      "sha256": "b818d264c5f88ff1fc865c2e4c7a654ca50e22b977bcc00ea9d2a49d6ff15637"
+    },
+    {
+      "path": "tools/build-assets.py",
+      "bytes": 14194,
+      "sha256": "8424784bd102c016bfd5b4973190d3d4f8d2b524b19ba759a55c228c68018933"
+    },
+    {
+      "path": "tools/build-material-icons.py",
+      "bytes": 4593,
+      "sha256": "4f446a1105d02a54f8de51776a606e71e059ae6d366d9c3a4225b6894beea9a4"
+    },
+    {
+      "path": "tools/check-interactions.js",
+      "bytes": 10786,
+      "sha256": "589ab6d00e7e4b2ad8ca7b2334cd16ae3f7442cc073c5f76171d89395d1366fc"
+    },
+    {
+      "path": "tools/check-package.py",
+      "bytes": 4463,
+      "sha256": "e2e857a21d0e245c055d1406b83f748018b4906f641f09fd19f70c7c5818a584"
+    },
+    {
+      "path": "tools/check-scenic-background.js",
+      "bytes": 2022,
+      "sha256": "a9c4c6a63ba5ff6e95b25c2ba7ff1803d550d4c67cb772d9dfe6c1c9176414d5"
+    },
+    {
+      "path": "tools/check-scenic-background.py",
+      "bytes": 2187,
+      "sha256": "b74783029fa93f778b5c5df01c1cc1a8b838918210ea16fad47503ed8b155181"
+    },
+    {
+      "path": "tools/outline-wordmark.swift",
+      "bytes": 1748,
+      "sha256": "745980aaf9559b3630f51024836fa14456e88c003e2fa30139a8387376c03f6e"
+    },
+    {
+      "path": "tools/package-review.py",
+      "bytes": 1915,
+      "sha256": "354a47163c89b0edb108bb9ec43994944d93cbeca7456020ebbe84404c852b36"
+    },
+    {
+      "path": "tools/render-review.js",
+      "bytes": 4831,
+      "sha256": "de871ae66b6fd289294a90f62b86250c7597a50a6707485380014eea710a6f84"
+    },
+    {
+      "path": "tools/render-review.py",
+      "bytes": 1482,
+      "sha256": "3cea07fa29e26a2f722e3626e0e4e9460037a2659181ca5ce45c5baa1f0dc4f6"
+    },
+    {
+      "path": "tools/run-interactions.py",
+      "bytes": 927,
+      "sha256": "cca199e02edefcc303b319976891b520523bde3269901f70818020f1de40294f"
+    }
+  ]
+}

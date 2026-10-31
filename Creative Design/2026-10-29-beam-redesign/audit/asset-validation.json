@@ -1,0 +1,93 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "svgCount": 72,
+  "pngCount": 21,
+  "wordmark": "Outlined SVG paths; no text nodes",
+  "opticalSizes": [
+    {
+      "platform": "macos",
+      "size": 16,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 16,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "macos",
+      "size": 32,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 32,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "macos",
+      "size": 64,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 64,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "macos",
+      "size": 128,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 128,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "macos",
+      "size": 256,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 256,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "macos",
+      "size": 512,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 512,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "macos",
+      "size": 1024,
+      "alpha": true,
+      "dimensionsPass": true
+    },
+    {
+      "platform": "android-tv",
+      "size": 1024,
+      "alpha": true,
+      "dimensionsPass": true
+    }
+  ],
+  "issues": []
+}

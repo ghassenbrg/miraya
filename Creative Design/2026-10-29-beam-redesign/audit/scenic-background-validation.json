@@ -1,0 +1,775 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "method": "Worst luminance contrast anywhere in each text-node rectangle against a real Chromium background render with text/shadows temporarily hidden. Conservative 4.5:1 for all text, including large headings. No text shadows counted as contrast.",
+  "checks": [
+    {
+      "state": "ready",
+      "text": "Miraya",
+      "minimumContrast": 17.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Living Room TV",
+      "minimumContrast": 11.9,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Local network available \u00b7 Illustrative",
+      "minimumContrast": 7.08,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Ready for your Mac",
+      "minimumContrast": 12.14,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Open Miraya on your Mac.",
+      "minimumContrast": 9.54,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Choose Living Room TV, then Share.",
+      "minimumContrast": 7.3,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Connection details",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Trusted Macs",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Rename TV",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "ready",
+      "text": "Keep Miraya open here. On your Mac, choose this TV and Share.",
+      "minimumContrast": 10.8,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Miraya",
+      "minimumContrast": 17.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Living Room TV",
+      "minimumContrast": 11.9,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Local network available \u00b7 Illustrative",
+      "minimumContrast": 7.08,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Compare with your Mac",
+      "minimumContrast": 15.25,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Confirm these six digits match your Mac.",
+      "minimumContrast": 13.46,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "481 729",
+      "minimumContrast": 13.61,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Choose \u201cNumbers match\u201d on your Mac, then approve here.",
+      "minimumContrast": 4.61,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Cancel pairing",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "pairing",
+      "text": "Code expires in 1:22 \u00b7 Illustrative",
+      "minimumContrast": 9.55,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Miraya",
+      "minimumContrast": 17.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Living Room TV",
+      "minimumContrast": 11.9,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Local network available \u00b7 Illustrative",
+      "minimumContrast": 7.08,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Allow MacBook Pro?",
+      "minimumContrast": 15.75,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Only allow this if you are connecting from your Mac now.",
+      "minimumContrast": 11.55,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "481 729",
+      "minimumContrast": 13.61,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Your screen and optional system audio will appear here.",
+      "minimumContrast": 4.61,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Decline",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Allow this Mac",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "approval",
+      "text": "Approval expires in 26 seconds \u00b7 Illustrative",
+      "minimumContrast": 9.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Miraya",
+      "minimumContrast": 17.66,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Living Room TV",
+      "minimumContrast": 12.97,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "No local network \u00b7 Illustrative",
+      "minimumContrast": 8.23,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "No local network yet",
+      "minimumContrast": 15.6,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Connect the TV to Wi-Fi or Ethernet, then reopen Miraya if needed. Your saved trusted Macs remain here.",
+      "minimumContrast": 7.42,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Connect the TV to Wi-Fi or Ethernet, then reopen Miraya if needed. Your saved trusted Macs remain here.",
+      "minimumContrast": 12.25,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Miraya cannot receive while the TV has no reachable local network.",
+      "minimumContrast": 10.67,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Refresh connection details",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "offline",
+      "text": "Trusted Macs",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "Miraya",
+      "minimumContrast": 17.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "Living Room TV",
+      "minimumContrast": 11.9,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "Local network available \u00b7 Illustrative",
+      "minimumContrast": 7.08,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "Your Mac disconnected",
+      "minimumContrast": 10.54,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "The picture is no longer being received. Check Miraya on your Mac and reconnect when ready.",
+      "minimumContrast": 14.7,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "The picture is no longer being received. Check Miraya on your Mac and reconnect when ready.",
+      "minimumContrast": 15.52,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "lost",
+      "text": "Back to ready",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "expired",
+      "text": "Miraya",
+      "minimumContrast": 17.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "expired",
+      "text": "Living Room TV",
+      "minimumContrast": 11.9,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "expired",
+      "text": "Local network available \u00b7 Illustrative",
+      "minimumContrast": 7.08,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "expired",
+      "text": "Pairing expired",
+      "minimumContrast": 13.87,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "expired",
+      "text": "Start again on the Mac and compare a fresh six-digit code.",
+      "minimumContrast": 4.84,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "expired",
+      "text": "Back to ready",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Miraya",
+      "minimumContrast": 17.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Living Room TV",
+      "minimumContrast": 12.7,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Local network available \u00b7 Illustrative",
+      "minimumContrast": 8.44,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Connection details",
+      "minimumContrast": 15.88,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Illustrative measurements",
+      "minimumContrast": 8.45,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "App viewport",
+      "minimumContrast": 8.45,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "1920 \u00d7 1080",
+      "minimumContrast": 15.7,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "TV physical output",
+      "minimumContrast": 8.45,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "3840 \u00d7 2160 \u00b7 60 Hz",
+      "minimumContrast": 15.39,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Mirroring ceiling",
+      "minimumContrast": 8.44,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Up to 1920 \u00d7 1080",
+      "minimumContrast": 15.38,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "60 fps maximum",
+      "minimumContrast": 15.36,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Manual connection",
+      "minimumContrast": 8.36,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "192.168.1.42",
+      "minimumContrast": 15.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Port 7421",
+      "minimumContrast": 15.51,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "A 4K output mode does not mean 4K screen sharing. Network RTT is not total display latency.",
+      "minimumContrast": 8.36,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "A 4K output mode does not mean 4K screen sharing. Network RTT is not total display latency.",
+      "minimumContrast": 8.45,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "details",
+      "text": "Done",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "TV picture",
+      "minimumContrast": 15.88,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Presentation only. Choose how the source fits.",
+      "minimumContrast": 8.44,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Fit",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Whole image \u00b7 bars may appear",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Fill",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Fill TV \u00b7 crop edges",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Stretch",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Fill TV \u00b7 change proportions",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Edge Margin\u2026",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "picture",
+      "text": "Done",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Sharing from your Mac",
+      "minimumContrast": 15.18,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Illustrative",
+      "minimumContrast": 9.53,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Fit",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "TV volume",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Details",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Stop",
+      "minimumContrast": 6.99,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Pause / resume mirroring on your Mac.",
+      "minimumContrast": 8.86,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "controls",
+      "text": "Back stops sharing immediately.",
+      "minimumContrast": 8.78,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Paused on your Mac",
+      "minimumContrast": 17.27,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Sharing from your Mac",
+      "minimumContrast": 15.18,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Illustrative",
+      "minimumContrast": 9.53,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Fit",
+      "minimumContrast": 16.02,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "TV volume",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Details",
+      "minimumContrast": 12.94,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Stop",
+      "minimumContrast": 6.99,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Pause / resume mirroring on your Mac.",
+      "minimumContrast": 8.86,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    },
+    {
+      "state": "paused",
+      "text": "Back stops sharing immediately.",
+      "minimumContrast": 8.78,
+      "threshold": 4.5,
+      "withinFrame": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
