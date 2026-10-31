@@ -1,0 +1,156 @@
+name: Release
+# Sidefolk's manual snapshot/production flow, adapted to Mac + Android TV.
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: What to release
+        type: choice
+        options: [snapshot, production]
+        default: snapshot
+      universal:
+        description: Build for Apple silicon and Intel
+        type: boolean
+        default: true
+  push:
+    tags: ['v*']
+permissions:
+  contents: write
+concurrency:
+  group: release
+  cancel-in-progress: false
+jobs:
+  release:
+    name: Release (${{ inputs.channel || 'production' }})
+    runs-on: ${{ vars.MIRAYA_MACOS_RUNNER || 'macos-15' }}
+    timeout-minutes: 210
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - name: Select Xcode
+        env:
+          MIRAYA_XCODE: ${{ vars.MIRAYA_XCODE }}
+        run: scripts/ci/select-xcode.sh
+      - uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '21'
+      - uses: android-actions/setup-android@v4
+        with:
+          packages: platform-tools
+          log-accepted-android-sdk-licenses: false
+      - name: Install Android SDK
+        run: sdkmanager 'platforms;android-36' 'build-tools;36.0.0' 'platform-tools'
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Import Mac signing certificate
+        id: signing
+        env:
+          MACOS_CERTIFICATE_P12: ${{ secrets.MACOS_CERTIFICATE_P12 }}
+          MACOS_CERTIFICATE_PASSWORD: ${{ secrets.MACOS_CERTIFICATE_PASSWORD }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+          APPLE_APP_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+        run: |
+          if [[ -z "$MACOS_CERTIFICATE_P12" ]]; then
+            echo 'signing=no' >> "$GITHUB_OUTPUT"
+            echo '::notice::Without Developer ID secrets a snapshot is ad hoc signed and not notarized.'
+          else
+            scripts/ci/import-signing.sh >> "$GITHUB_OUTPUT"
+            echo 'signing=yes' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Prepare Android signing
+        id: android
+        env:
+          ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          MIRAYA_STORE_PASSWORD: ${{ secrets.MIRAYA_STORE_PASSWORD }}
+          MIRAYA_KEY_ALIAS: ${{ secrets.MIRAYA_KEY_ALIAS }}
+          MIRAYA_KEY_PASSWORD: ${{ secrets.MIRAYA_KEY_PASSWORD }}
+        run: |
+          present=0
+          for name in ANDROID_KEYSTORE_BASE64 MIRAYA_STORE_PASSWORD MIRAYA_KEY_ALIAS MIRAYA_KEY_PASSWORD; do
+            if [[ -n "${!name:-}" ]]; then present=$((present + 1)); fi
+          done
+          if [[ "$present" == 0 ]]; then
+            echo 'signing=no' >> "$GITHUB_OUTPUT"
+            echo '::notice::Without Android release secrets a snapshot uses a development key.'
+          elif [[ "$present" != 4 ]]; then
+            echo '::error::Set all four Android signing secrets, or none for a development snapshot.'
+            exit 1
+          else
+            printf '%s' "$ANDROID_KEYSTORE_BASE64" | base64 --decode > "$RUNNER_TEMP/miraya-release.jks"
+            chmod 600 "$RUNNER_TEMP/miraya-release.jks"
+            echo "MIRAYA_KEYSTORE=$RUNNER_TEMP/miraya-release.jks" >> "$GITHUB_ENV"
+            echo 'signing=yes' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Plan
+        id: plan
+        env:
+          CHANNEL: ${{ inputs.channel }}
+          SIGNING: ${{ steps.signing.outputs.signing }}
+          ANDROID_SIGNING: ${{ steps.android.outputs.signing }}
+        run: scripts/ci/release-plan.sh | tee -a "$GITHUB_OUTPUT"
+      - name: Test, build, sign and package
+        env:
+          CHANNEL: ${{ steps.plan.outputs.channel }}
+          RELEASE_VERSION: ${{ steps.plan.outputs.version }}
+          RELEASE_BUILD: ${{ steps.plan.outputs.build }}
+          RELEASE_LABEL: ${{ steps.plan.outputs.label }}
+          RELEASE_TAG: ${{ steps.plan.outputs.tag }}
+          UNIVERSAL: ${{ github.event_name == 'push' || inputs.universal || false }}
+          SIGNING: ${{ steps.signing.outputs.signing }}
+          SIGNING_KEYCHAIN: ${{ steps.signing.outputs.keychain }}
+          CODESIGN_IDENTITY: ${{ steps.signing.outputs.identity || '-' }}
+          ANDROID_SIGNING: ${{ steps.android.outputs.signing }}
+          MIRAYA_STORE_PASSWORD: ${{ secrets.MIRAYA_STORE_PASSWORD }}
+          MIRAYA_KEY_ALIAS: ${{ secrets.MIRAYA_KEY_ALIAS }}
+          MIRAYA_KEY_PASSWORD: ${{ secrets.MIRAYA_KEY_PASSWORD }}
+          MIRAYA_NOTARY_MINUTES: ${{ vars.MIRAYA_NOTARY_MINUTES || '180' }}
+        run: scripts/ci/package-release.sh
+      - name: Keep the build
+        uses: actions/upload-artifact@v4
+        with:
+          name: Miraya-${{ steps.plan.outputs.tag }}
+          path: build/release-assets/${{ steps.plan.outputs.tag }}/*
+          if-no-files-found: error
+      - name: Publish the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          CHANNEL: ${{ steps.plan.outputs.channel }}
+          TAG: ${{ steps.plan.outputs.tag }}
+          VERSION: ${{ steps.plan.outputs.version }}
+          BUILD: ${{ steps.plan.outputs.build }}
+          SIGNING: ${{ steps.signing.outputs.signing }}
+          ANDROID_SIGNING: ${{ steps.android.outputs.signing }}
+        run: |
+          if [[ "$CHANNEL" == production ]]; then
+            gh release create "$TAG" build/release-assets/"$TAG"/* --target "$GITHUB_SHA" \
+              --title "Miraya $VERSION" --notes-file docs/RELEASE-NOTES.md
+          else
+            notes="$RUNNER_TEMP/miraya-snapshot-notes.md"
+            {
+              echo "Snapshot of ${GITHUB_SHA::8} for testing."
+              if [[ "$SIGNING" == yes ]]; then echo 'Mac: Developer ID signed and notarized.'; else echo 'Mac: ad hoc signed, not notarized; this development build may be blocked by Gatekeeper.'; fi
+              if [[ "$ANDROID_SIGNING" == yes ]]; then echo 'Android TV: signed with the configured release key.'; else echo 'Android TV: development key; updating from another signing key requires uninstalling and pairing again.'; fi
+            } > "$notes"
+            # Repeating a snapshot of this commit replaces that snapshot only.
+            if gh release view "$TAG" >/dev/null 2>&1; then gh release delete "$TAG" --yes --cleanup-tag; fi
+            gh release create "$TAG" build/release-assets/"$TAG"/* --target "$GITHUB_SHA" --prerelease \
+              --title "Miraya $VERSION snapshot $BUILD" --notes-file "$notes"
+          fi
+      - name: Keep only the latest snapshots
+        if: steps.plan.outputs.channel == 'snapshot'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KEEP: ${{ vars.MIRAYA_KEEP_SNAPSHOTS || '10' }}
+        run: |
+          [[ "$KEEP" =~ ^[1-9][0-9]*$ ]] || { echo 'MIRAYA_KEEP_SNAPSHOTS must be positive.' >&2; exit 1; }
+          gh release list --limit 200 --json tagName,isPrerelease,createdAt \
+            --jq '[.[] | select(.isPrerelease and (.tagName | test("^v[0-9]+\\.[0-9]+\\.[0-9]+-snapshot\\.[0-9]+$")))] | sort_by(.createdAt) | reverse | .[(env.KEEP | tonumber):] | .[].tagName' |
+            while read -r old; do gh release delete "$old" --yes --cleanup-tag; done
+      - name: Remove signing materials
+        if: always()
+        run: |
+          keychain="$RUNNER_TEMP/miraya-signing.keychain-db"
+          if [[ -f "$keychain" ]]; then security delete-keychain "$keychain"; fi
+          rm -f "$RUNNER_TEMP/miraya-developer-id.p12" "$RUNNER_TEMP/miraya-release.jks"

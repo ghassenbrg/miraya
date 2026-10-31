@@ -1,18 +1,31 @@
-name: Build and test
+name: CI
 on:
   push:
+    branches: [master]
   pull_request:
-  workflow_dispatch:
+    branches: [master]
 permissions:
   contents: read
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 jobs:
   macos:
-    runs-on: macos-15
+    runs-on: ${{ vars.MIRAYA_MACOS_RUNNER || 'macos-15' }}
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v7
+      - name: Select Xcode
+        env:
+          MIRAYA_XCODE: ${{ vars.MIRAYA_XCODE }}
+        run: scripts/ci/select-xcode.sh
       - name: Test sender protocol
         run: swift test --package-path macos
+      - name: Test snapshot and production guards
+        run: python3 tools/test-release-plan.py
       - name: Package universal app
+        env:
+          CODESIGN_IDENTITY: '-'
         run: scripts/build-macos.sh --universal
       - name: Archive app
         run: ditto -c -k --sequesterRsrc --keepParent dist/Miraya.app dist/Miraya-macOS.zip

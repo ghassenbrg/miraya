@@ -17,6 +17,7 @@ struct Receiver: Identifiable, Hashable {
 /// NetService and its delegates are scheduled on the main run loop. Construct
 /// and call this object only from the UI, keeping published changes on that loop.
 final class Discovery: NSObject, ObservableObject, NetServiceBrowserDelegate, NetServiceDelegate {
+    @Published private(set) var isSearching = true
     @Published var receivers: [Receiver] = []
     @Published var message = "Looking for TVs on your local network…"
     private let browser = NetServiceBrowser()
@@ -29,12 +30,13 @@ final class Discovery: NSObject, ObservableObject, NetServiceBrowserDelegate, Ne
     private var started = false
     override init() { super.init(); browser.delegate = self }
     func start() {
-        guard !started else { return }; started = true
+        guard !started else { return }; started = true; isSearching = true
         browser.searchForServices(ofType: "_miraya._tcp.", inDomain: "local.")
         timeoutTask?.cancel()
         timeoutTask = Task { @MainActor [weak self] in
             do { try await Task.sleep(nanoseconds: 5_000_000_000) } catch { return }
             guard let self, self.receivers.isEmpty else { return }
+            self.isSearching = false
             self.message = "Open Miraya on your TV. Use the same Wi-Fi or Ethernet network. If your TV doesn’t appear, enter its address below."
         }
     }
@@ -79,7 +81,7 @@ final class Discovery: NSObject, ObservableObject, NetServiceBrowserDelegate, Ne
         resolutionAttempts.removeValue(forKey: key(service))
     }
     func netServiceBrowser(_ browser: NetServiceBrowser, didNotSearch errorDict: [String: NSNumber]) {
-        started = false
+        started = false; isSearching = false
         message = "Local discovery is unavailable. Allow Miraya in System Settings → Privacy & Security → Local Network, or enter the TV address."
     }
     private func publish() {
@@ -94,6 +96,7 @@ final class Discovery: NSObject, ObservableObject, NetServiceBrowserDelegate, Ne
             let order = $0.name.localizedCaseInsensitiveCompare($1.name)
             return order == .orderedSame ? $0.id < $1.id : order == .orderedAscending
         }
+        if !receivers.isEmpty { isSearching = false }
         message = receivers.isEmpty ? "Open Miraya on your TV and connect both devices to the same network." : "Choose a TV to share your screen."
     }
     deinit { timeoutTask?.cancel(); browser.stop(); services.values.forEach { $0.stop() } }

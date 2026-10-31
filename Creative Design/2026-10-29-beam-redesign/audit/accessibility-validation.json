@@ -1,0 +1,150 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "method": "WCAG relative sRGB luminance; solid colors, not decorative light gradients",
+  "contrast": [
+    {
+      "name": "Mac primary",
+      "foreground": "#182233",
+      "background": "#F6F7F9",
+      "ratio": 14.89,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Mac secondary",
+      "foreground": "#596474",
+      "background": "#F6F7F9",
+      "ratio": 5.6,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Primary white label",
+      "foreground": "#FFFFFF",
+      "background": "#155DDD",
+      "ratio": 5.77,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Mac Stop",
+      "foreground": "#FFFFFF",
+      "background": "#BE2C3C",
+      "ratio": 5.81,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Mac success",
+      "foreground": "#237348",
+      "background": "#F6F7F9",
+      "ratio": 5.42,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Mac warning",
+      "foreground": "#8D4D00",
+      "background": "#F6F7F9",
+      "ratio": 6.13,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Light control boundary",
+      "foreground": "#7F8A9A",
+      "background": "#FFFFFF",
+      "ratio": 3.5,
+      "minimum": 3,
+      "passed": true
+    },
+    {
+      "name": "Inactive switch",
+      "foreground": "#6F7B8C",
+      "background": "#F6F7F9",
+      "ratio": 4.01,
+      "minimum": 3,
+      "passed": true
+    },
+    {
+      "name": "Dark Mac primary",
+      "foreground": "#F4F7FB",
+      "background": "#17202E",
+      "ratio": 15.24,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Dark Mac secondary",
+      "foreground": "#B4C0D1",
+      "background": "#202C3D",
+      "ratio": 7.66,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "Dark control boundary",
+      "foreground": "#7B8DA6",
+      "background": "#202C3D",
+      "ratio": 4.17,
+      "minimum": 3,
+      "passed": true
+    },
+    {
+      "name": "TV primary",
+      "foreground": "#F4F7FB",
+      "background": "#0B1323",
+      "ratio": 17.27,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "TV secondary",
+      "foreground": "#A8B8CD",
+      "background": "#172237",
+      "ratio": 7.88,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "TV neutral button label",
+      "foreground": "#E4ECF8",
+      "background": "#18253A",
+      "ratio": 12.94,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "TV focused label",
+      "foreground": "#101B2F",
+      "background": "#F4F7FB",
+      "ratio": 16.02,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "TV focus outline",
+      "foreground": "#BDD7FF",
+      "background": "#18253A",
+      "ratio": 10.5,
+      "minimum": 3,
+      "passed": true
+    },
+    {
+      "name": "TV Stop",
+      "foreground": "#FFFFFF",
+      "background": "#A92536",
+      "ratio": 6.99,
+      "minimum": 4.5,
+      "passed": true
+    },
+    {
+      "name": "TV focused Stop",
+      "foreground": "#A02031",
+      "background": "#FFFFFF",
+      "ratio": 7.65,
+      "minimum": 4.5,
+      "passed": true
+    }
+  ]
+}

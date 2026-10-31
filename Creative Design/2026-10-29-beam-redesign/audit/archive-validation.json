@@ -1,0 +1,11 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "file": "exports/Miraya-Beam-PROPOSAL-ONLY-2026-10-29.zip",
+  "entries": 165,
+  "bytes": 36635042,
+  "sha256": "f68ee42e543ca593713611e2a45c9c5fddf217a0463befc6ece4968e6ff337ea",
+  "crcError": null,
+  "allFileHashesMatch": true,
+  "passed": true,
+  "excluded": "Runtime browser logs, output intermediates, exports, caches; source assets and validation reports are included."
+}

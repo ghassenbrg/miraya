@@ -1,0 +1,9 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "branch": "creative-design/2026-10-29-beam-redesign",
+  "baselineOutsideFiles": 351,
+  "modifiedOutsideFiles": [],
+  "newOutsideFiles": [],
+  "passed": true,
+  "note": "Preexisting dirty production changes are preserved. This compares file contents against the design starting baseline, not a clean HEAD."
+}

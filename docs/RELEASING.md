@@ -1,5 +1,27 @@
 # Building and releasing
 
+## GitHub CI and release channels
+
+`VERSION` is the source of truth for both app versions (currently **0.1.0**). Android reads it directly; Mac packaging writes it into the bundle. `MIRAYA_BUILD_NUMBER` supplies the numeric build/versionCode; CI releases use the full Git commit count. Local builds default to build 6.
+
+CI runs **only for pushes to `master` and pull requests targeting `master`**. It tests/packages the universal Mac app and tests/lints/builds Android debug and optimized release APKs. Other branch pushes and manual dispatch do not trigger CI.
+
+The separate **Release** workflow follows Sidefolk's channel model, adapted without changing Sidefolk:
+
+- Run **Actions → Release → Run workflow → snapshot** for a prerelease named `v0.1.0-snapshot.<commit-count>`. Without signing secrets it contains an ad-hoc Mac app and development-signed Android APK, labeled in its notes. Android development keys from different CI runs may differ; upgrading across keys requires uninstalling and pairing again. Configure the release keystore for consistent updates.
+- Choose **production**, or push a matching `v0.1.0` tag, for a normal release. Production fails unless Developer ID/notarization credentials and the Android release key are configured. A tag must match `VERSION` and cannot move an already released version to another commit.
+- The Universal input defaults on and builds both Mac architectures; tag-triggered production builds are universal. Turning it off for a manual run builds the selected runner's host architecture. `MIRAYA_MACOS_RUNNER` (default `macos-15`) and `MIRAYA_XCODE` select the runner/toolchain. Choose an arm64 runner for Apple-silicon-only snapshots.
+- Signed Mac artifacts are submitted to Apple, stapled and assessed before publishing. Both platform artifacts and SHA-256 checksums are retained in Actions and attached to Releases. Re-running a snapshot replaces that snapshot; production releases are never replaced. Snapshot retention defaults to 10 (`MIRAYA_KEEP_SNAPSHOTS`).
+
+Configure these repository **secrets in Miraya**:
+
+| Platform | Secrets |
+| --- | --- |
+| Mac | `MACOS_CERTIFICATE_P12` (base64 Developer ID certificate/private key), `MACOS_CERTIFICATE_PASSWORD`, `APPLE_ID`, `APPLE_TEAM_ID`, `APPLE_APP_PASSWORD` |
+| Android | `ANDROID_KEYSTORE_BASE64`, `MIRAYA_STORE_PASSWORD`, `MIRAYA_KEY_ALIAS`, `MIRAYA_KEY_PASSWORD` |
+
+Use an ephemeral or dedicated release runner. The workflow creates its own signing keychain and temporary Android keystore and removes them even after failed runs. `MIRAYA_NOTARY_MINUTES` controls Apple's wait timeout (default 180); the job timeout is 210 minutes. No workflow was dispatched or release published just by adding these files. Local release-plan tests and Actionlint validate configuration before its first hosted run.
+
 ## Local builds
 
 ```sh
@@ -12,9 +34,11 @@ The app bundle and installable development APK are written to `dist/`. The APK u
 
 `scripts/build-macos.sh --universal` builds arm64 and x86_64 into one app. Default builds use the host architecture. Version metadata can be set with `MIRAYA_VERSION=X.Y.Z` and `MIRAYA_BUILD_NUMBER=N`. macOS 13 is the deployment target; building with a newer SDK does not make newer APIs safe without availability checks.
 
+Mac builds automatically use the single valid Developer ID Application identity in the login keychain when one is available. With several identities, set `CODESIGN_IDENTITY` explicitly; the build stops before replacing the existing app rather than choosing a team. With no identity, it falls back to ad-hoc signing and warns that rebuilding can invalidate screen-recording and Keychain grants. `CODESIGN_IDENTITY=-` explicitly selects that development mode. Keep the same Developer ID team and bundle identifier across updates. Moving from an existing ad-hoc build to Developer ID requires a one-time permission refresh. Automatic signing does not submit the app for notarization.
+
 ## macOS Developer ID and notarization
 
-An Apple Developer Program account and Developer ID Application identity are required for normal public distribution outside the Mac App Store. The repository intentionally includes neither credentials nor an app-store upload flow. The packaged app uses hardened runtime, no JIT or unsigned-library exceptions, and no sandbox-specific capture entitlement.
+An Apple Developer Program account and Developer ID Application identity are required for normal public distribution outside the Mac App Store. The repository intentionally includes neither credentials nor an app-store upload flow. Developer ID builds sign the embedded WebRTC framework and executable with the same identity and use hardened runtime, no JIT or unsigned-library exceptions, and no sandbox-specific capture entitlement.
 
 List your available identities, then build and verify:
 
@@ -35,7 +59,7 @@ spctl --assess --type execute --verbose=2 dist/Miraya.app
 ditto -c -k --sequesterRsrc --keepParent dist/Miraya.app dist/Miraya-macOS.zip
 ```
 
-Do not modify files inside the app after signing. Test the downloaded notarized archive on a clean Mac, including first-run network/capture permission and Keychain behavior. Ad-hoc builds do not establish a verified Developer ID identity and are not notarized. See [Apple's notarization guide](https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution).
+Do not modify files inside the app after signing. Test the downloaded notarized archive on a clean Mac, including first-run network/capture permission and Keychain behavior. Local ad-hoc builds omit hardened runtime because library validation requires a common real Team ID for the dynamic framework and executable. Production builds retain library validation without exceptions. Ad-hoc builds do not establish a verified Developer ID identity and are not notarized. See [Apple's notarization guide](https://developer.apple.com/documentation/security/notarizing-macos-software-before-distribution).
 
 ## Android release signing
 
@@ -70,3 +94,9 @@ Use the same key for every update. Keep the Gradle application version/versionCo
 - Publish SHA-256 checksums and identify which artifacts are signed/notarized. Never upload keys or tokens.
 
 `scripts/package-release.sh` runs automated checks, builds universal Mac and debug/release Android artifacts, zips the app and writes checksums. It does not submit to Apple or publish anywhere. Without credentials, its outputs include a local ad-hoc Mac build, an installable signed development APK, and an unsigned Android release. Release builds remove stale artifacts of the opposite signing mode so an old signed APK cannot be mistaken for a new release.
+
+## Native media release checks
+
+Both native WebRTC dependencies are pinned. When upgrading, update the Objective-C audio-device protocol bridge and verify the custom system-audio input, encoder levels, decoder capability declaration, pacing configuration and notices together. The packaged Android AAR has no consumer shrinker rules: keep its WebRTC JNI interface and JNI Zero native entry points in optimized builds. A successful debug build does not test this boundary.
+
+Test an optimized release APK using a disposable copy signed with a development key, passed to `tools/emulator-smoke.py --apk PATH`. Keep the unsigned/public release artifact separate; development signing is not production signing. Require actual H.264 rendering, UDP nomination, distinct decoded stereo channels, near-real-time audio packet/sample progression, live controls and saved reconnect. Repeat the physical-TV acceptance checks on the final production-signed packages.

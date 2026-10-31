@@ -14,3 +14,7 @@ android/.cxx/
 .env
 __pycache__/
 *.pyc
+
+# Browser automation caches and reproducible design review archives.
+.playwright-cli/
+Creative Design/**/exports/

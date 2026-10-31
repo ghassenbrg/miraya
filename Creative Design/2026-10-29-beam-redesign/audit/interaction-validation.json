@@ -1,0 +1,327 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "checks": [
+    {
+      "name": "Five quality ceilings",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Quality ceiling 0",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Quality ceiling 1",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Quality ceiling 2",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Quality ceiling 3",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Quality ceiling 4",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Desktop profile selects motion ceiling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Video profile selects detail ceiling",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Follow TV toggles",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Escape closes sheet",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Audio route tv",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Audio route mac",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Audio route both",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Invalid address has actionable inline error",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Invalid port blocks connect",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Start acknowledged immediately",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Pairing is six digits with no code entry",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Mac match waits for remote approval",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Review simulation advances to TV approval",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV approval defaults to Decline",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "D-pad reaches Allow",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Approval does not claim sharing before picture",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "First picture enters live",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Pause differs from stop",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Paused source sheet blocks switching to direct media",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Source change remains paused",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Connection details returns to paused",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Resume then Stop returns ready",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Forget cancel preserves TV",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Forget removes only chosen TV",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Offline trust can be removed individually",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Modal keyboard focus wraps",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Closing sheet restores trigger focus",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Fill is deliberate cropping",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Stretch explains distortion",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "One edge margin reaches maximum ten",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Edge margin minimum is zero",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Mirror controls omit unsupported TV pause",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "D-pad stays inside TV panel",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV settings Back preserves sharing",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV Back stops sharing",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Remote invokes hidden controls",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV direct media Pause works",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV direct media Play works",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV forget defaults Cancel",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "TV removes an individual trusted Mac",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Direct HTTPS selection remains media mode",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "External subtitle selection persists",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Mac direct playback pause works",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Reduced motion stops Beam animation",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Mac responsive 375 light",
+      "passed": true,
+      "details": "{\"left\":17.5,\"right\":357.5,\"viewport\":375}"
+    },
+    {
+      "name": "Mac responsive 375 dark",
+      "passed": true,
+      "details": "{\"left\":17.5,\"right\":357.5,\"viewport\":375}"
+    },
+    {
+      "name": "Mac responsive 768 light",
+      "passed": true,
+      "details": "{\"left\":174,\"right\":594,\"viewport\":768}"
+    },
+    {
+      "name": "Mac responsive 768 dark",
+      "passed": true,
+      "details": "{\"left\":174,\"right\":594,\"viewport\":768}"
+    },
+    {
+      "name": "Mac responsive 1280 light",
+      "passed": true,
+      "details": "{\"left\":430,\"right\":850,\"viewport\":1280}"
+    },
+    {
+      "name": "Mac responsive 1280 dark",
+      "passed": true,
+      "details": "{\"left\":430,\"right\":850,\"viewport\":1280}"
+    },
+    {
+      "name": "Compact Mac at two-times presentation scale",
+      "passed": true,
+      "details": "{\"w\":680,\"footer\":676}"
+    },
+    {
+      "name": "TV native 16:9 aspect and safe pairing digits",
+      "passed": true,
+      "details": "{\"width\":1920,\"height\":1080,\"digits\":155.52,\"leftInset\":96.890625,\"topInset\":54.890625,\"codeInside\":true}"
+    },
+    {
+      "name": "All assets load in mac",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "All assets load in tv",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "All assets load in brand",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "All assets load in icons",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "All assets load in system",
+      "passed": true,
+      "details": ""
+    },
+    {
+      "name": "Reset clears illustrative settings edits",
+      "passed": true,
+      "details": ""
+    }
+  ],
+  "errors": [],
+  "resources": []
+}

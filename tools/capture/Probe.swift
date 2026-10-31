@@ -16,31 +16,34 @@ struct CaptureProbe {
 
         let directory = URL(fileURLWithPath: CommandLine.arguments.dropFirst().first ?? "/tmp/miraya-capture-probe", isDirectory: true)
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        let width = Int(ProcessInfo.processInfo.environment["MIRAYA_FIXTURE_WIDTH"] ?? "640") ?? 640
+        let height = Int(ProcessInfo.processInfo.environment["MIRAYA_FIXTURE_HEIGHT"] ?? "360") ?? 360
+        precondition(width >= 16 && width <= 1920 && height >= 16 && height <= 1080 && width % 2 == 0 && height % 2 == 0)
         let lock = NSLock()
         var frames: [(pts: UInt64, keyframe: Bool, data: Data)] = []
         var config: Data?
         var failures: [Error] = []
-        let encoder = try H264Encoder(width: 640, height: 360, fps: 30, bitrate: 1_500_000)
+        let encoder = try H264Encoder(width: width, height: height, fps: 30, bitrate: 1_500_000)
         encoder.output = { result in
             lock.lock()
             defer { lock.unlock() }
             do {
                 guard let sample = try result.get() else { return }
-                let packet = try H264Encoder.packet(from: sample, width: 640, height: 360, fps: 30)
+                let packet = try H264Encoder.packet(from: sample, width: width, height: height, fps: 30)
                 if let next = packet.config { config = next }
                 frames.append((packet.pts, packet.keyframe, packet.data))
             } catch { failures.append(error) }
         }
         for index in 0..<90 {
             var optional: CVPixelBuffer?
-            let status = CVPixelBufferCreate(kCFAllocatorDefault, 640, 360, kCVPixelFormatType_32BGRA,
+            let status = CVPixelBufferCreate(kCFAllocatorDefault, width, height, kCVPixelFormatType_32BGRA,
                 [kCVPixelBufferIOSurfacePropertiesKey: [:]] as CFDictionary, &optional)
             guard status == kCVReturnSuccess, let buffer = optional else { fatalError("Pixel buffer creation failed: \(status)") }
             CVPixelBufferLockBaseAddress(buffer, [])
             let bytes = CVPixelBufferGetBaseAddress(buffer)!.assumingMemoryBound(to: UInt8.self)
             let stride = CVPixelBufferGetBytesPerRow(buffer)
-            for y in 0..<360 {
-                for x in 0..<640 {
+            for y in 0..<height {
+                for x in 0..<width {
                     let offset = y * stride + x * 4
                     bytes[offset] = UInt8((x + index * 3) % 256)
                     bytes[offset + 1] = UInt8((y + index * 5) % 256)

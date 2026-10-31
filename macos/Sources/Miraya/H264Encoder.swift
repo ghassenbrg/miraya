@@ -4,19 +4,21 @@ import CoreVideo
 import VideoToolbox
 
 enum CaptureQuality: String, CaseIterable, Identifiable {
-    case balanced, motion, efficient
+    case balanced, motion, efficient, efficientMotion, lowBandwidth
     var id: String { rawValue }
     var label: String {
         switch self {
-        case .balanced: return "Balanced · 1080p / 30 fps"
-        case .motion: return "Smooth motion · 1080p / 60 fps"
-        case .efficient: return "Efficient · 720p / 30 fps"
+        case .balanced: return "Up to 1080p · 30 fps"
+        case .motion: return "Up to 1080p · 60 fps"
+        case .efficient: return "Up to 720p · 30 fps"
+        case .efficientMotion: return "Up to 720p · 60 fps"
+        case .lowBandwidth: return "Up to 480p · 15 fps"
         }
     }
-    var maxWidth: Int { self == .efficient ? 1280 : 1920 }
-    var maxHeight: Int { self == .efficient ? 720 : 1080 }
-    var fps: Int { self == .motion ? 60 : 30 }
-    var bitrate: Int { self == .motion ? 10_000_000 : (self == .efficient ? 3_000_000 : 6_000_000) }
+    var maxWidth: Int { self == .lowBandwidth ? 854 : (self == .efficient || self == .efficientMotion ? 1280 : 1920) }
+    var maxHeight: Int { self == .lowBandwidth ? 480 : (self == .efficient || self == .efficientMotion ? 720 : 1080) }
+    var fps: Int { self == .motion || self == .efficientMotion ? 60 : (self == .lowBandwidth ? 15 : 30) }
+    var bitrate: Int { self == .motion ? 10_000_000 : (self == .lowBandwidth ? 1_000_000 : (self == .efficient ? 3_000_000 : 6_000_000)) }
 
     /// Even dimensions are required by the 4:2:0 encoder. Never upscale a display.
     func fittedSize(width: Int, height: Int) -> (width: Int, height: Int) {
@@ -34,7 +36,7 @@ enum CaptureFailure: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .displayUnavailable: return "The selected display is no longer available. Choose a connected display and share again."
-        case .encoding(let code): return "The Mac could not encode the screen (VideoToolbox \(code)). Try Balanced or Efficient quality."
+        case .encoding(let code): return "The Mac could not encode the screen (VideoToolbox \(code)). Try 1080p at 30 fps or a 720p maximum."
         case .invalidVideo(let detail): return "The video encoder returned an invalid frame: \(detail)."
         case .audioFormat(let detail): return "System audio could not be captured: \(detail). Try sharing with system audio turned off."
         }
@@ -80,7 +82,7 @@ final class H264Encoder {
             try property(kVTCompressionPropertyKey_RealTime, kCFBooleanTrue)
             try property(kVTCompressionPropertyKey_AllowFrameReordering, kCFBooleanFalse)
             try property(kVTCompressionPropertyKey_ProfileLevel, kVTProfileLevel_H264_Main_AutoLevel)
-            try property(kVTCompressionPropertyKey_AverageBitRate, bitrate as CFNumber)
+            updateBitrate(bitrate)
             try property(kVTCompressionPropertyKey_ExpectedFrameRate, fps as CFNumber)
             try property(kVTCompressionPropertyKey_MaxKeyFrameInterval, (fps * 2) as CFNumber)
             try property(kVTCompressionPropertyKey_MaxKeyFrameIntervalDuration, 2 as CFNumber)
@@ -105,8 +107,12 @@ final class H264Encoder {
 
     func updateBitrate(_ bitrate: Int) {
         guard let session else { return }
-        VTSessionSetProperty(session, key: kVTCompressionPropertyKey_AverageBitRate,
-            value: max(500_000, min(20_000_000, bitrate)) as CFNumber)
+        let target = max(500_000, min(20_000_000, bitrate))
+        VTSessionSetProperty(session, key: kVTCompressionPropertyKey_AverageBitRate, value: target as CFNumber)
+        // Average bitrate alone allows large scene-change/IDR bursts. Bound the
+        // one-second burst as well. Optional on hardware without this property.
+        VTSessionSetProperty(session, key: kVTCompressionPropertyKey_DataRateLimits,
+            value: [target * 5 / 4 / 8, 1] as CFArray)
     }
 
     func encode(_ pixelBuffer: CVPixelBuffer, pts: CMTime) throws {

@@ -1,0 +1,2791 @@
+{
+  "status": "PROPOSAL ONLY \u2014 NOT IMPLEMENTED",
+  "captures": [
+    {
+      "view": "mac",
+      "state": "ready",
+      "file": "previews/mac-ready.png"
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "file": "previews/mac-pairing.png"
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "file": "previews/mac-live.png"
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "file": "previews/mac-error-recovery.png"
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "file": "previews/mac-paused.png"
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "file": "previews/mac-compact.png"
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "file": "previews/mac-dark-live.png"
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "file": "previews/mac-manual.png"
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "file": "previews/mac-trusted-devices.png"
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "file": "previews/mac-connection-details.png"
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "file": "previews/mac-direct-media-ready.png"
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "file": "previews/mac-direct-media-live.png"
+    },
+    {
+      "view": "tv",
+      "state": "ready",
+      "file": "previews/tv-ready.png"
+    },
+    {
+      "view": "tv",
+      "state": "pairing",
+      "file": "previews/tv-pairing.png"
+    },
+    {
+      "view": "tv",
+      "state": "approval",
+      "file": "previews/tv-approval.png"
+    },
+    {
+      "view": "tv",
+      "state": "live",
+      "file": "previews/tv-live.png"
+    },
+    {
+      "view": "tv",
+      "state": "controls",
+      "file": "previews/tv-controls.png"
+    },
+    {
+      "view": "tv",
+      "state": "paused",
+      "file": "previews/tv-paused.png"
+    },
+    {
+      "view": "tv",
+      "state": "details",
+      "file": "previews/tv-details.png"
+    },
+    {
+      "view": "tv",
+      "state": "picture",
+      "file": "previews/tv-picture-modes.png"
+    },
+    {
+      "view": "tv",
+      "state": "trusted",
+      "file": "previews/tv-trusted-macs.png"
+    },
+    {
+      "view": "tv",
+      "state": "media-controls",
+      "file": "previews/tv-direct-media-controls.png"
+    },
+    {
+      "view": "brand",
+      "state": "identity",
+      "file": "previews/brand-board.png"
+    },
+    {
+      "view": "icons",
+      "state": "platforms",
+      "file": "previews/icon-board.png"
+    },
+    {
+      "view": "icons",
+      "state": "small",
+      "file": "previews/small-icon-test.png"
+    },
+    {
+      "view": "system",
+      "state": "system",
+      "file": "previews/design-system-board.png"
+    },
+    {
+      "view": "overview",
+      "state": "board",
+      "file": "previews/review-overview.png"
+    }
+  ],
+  "states": [
+    {
+      "view": "mac",
+      "state": "discovering",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Finding your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "discovering",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Finding your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "discovering",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Finding your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "discovering",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Finding your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "discovering",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Finding your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "discovering",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Finding your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "no-devices",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "No TV found yet",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "no-devices",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "No TV found yet",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "no-devices",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "No TV found yet",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "no-devices",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "No TV found yet",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "no-devices",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "No TV found yet",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "no-devices",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "No TV found yet",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "multiple",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "multiple",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "multiple",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "multiple",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "multiple",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "multiple",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "ready",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Share your screen",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "offline",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Living Room TV is offline",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "offline",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Living Room TV is offline",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "offline",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Living Room TV is offline",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "offline",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Living Room TV is offline",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "offline",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Living Room TV is offline",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "offline",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Living Room TV is offline",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "network",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your TV hasn\u2019t appeared",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "network",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your TV hasn\u2019t appeared",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "network",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your TV hasn\u2019t appeared",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "network",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your TV hasn\u2019t appeared",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "network",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your TV hasn\u2019t appeared",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "network",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your TV hasn\u2019t appeared",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-invalid",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-invalid",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-invalid",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-invalid",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-invalid",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-invalid",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connect by address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-failed",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reach that address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-failed",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reach that address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-failed",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reach that address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-failed",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reach that address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-failed",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reach that address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "manual-failed",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reach that address",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "waiting",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Contacting your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "waiting",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Contacting your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "waiting",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Contacting your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "waiting",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Contacting your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "waiting",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Contacting your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "waiting",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Contacting your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "pairing",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "approval",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Approve on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "approval",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Approve on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "approval",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Approve on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "approval",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Approve on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "approval",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Approve on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "approval",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Approve on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "mismatch",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The numbers don\u2019t match",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "mismatch",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The numbers don\u2019t match",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "mismatch",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The numbers don\u2019t match",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "mismatch",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The numbers don\u2019t match",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "mismatch",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The numbers don\u2019t match",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "mismatch",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The numbers don\u2019t match",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "expired",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "That pairing has expired",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "expired",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "That pairing has expired",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "expired",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "That pairing has expired",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "expired",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "That pairing has expired",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "expired",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "That pairing has expired",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "expired",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "That pairing has expired",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "rejected",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV declined this connection",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "rejected",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV declined this connection",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "rejected",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV declined this connection",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "rejected",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV declined this connection",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "rejected",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV declined this connection",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "rejected",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV declined this connection",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "connected",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "TV connected",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "connected",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "TV connected",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "connected",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "TV connected",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "connected",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "TV connected",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "connected",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "TV connected",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "connected",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "TV connected",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "live",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "paused",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnecting",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Reconnecting to your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnecting",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Reconnecting to your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnecting",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Reconnecting to your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnecting",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Reconnecting to your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnecting",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Reconnecting to your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnecting",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Reconnecting to your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnect-failed",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reconnect to the TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnect-failed",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reconnect to the TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnect-failed",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reconnect to the TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnect-failed",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reconnect to the TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnect-failed",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reconnect to the TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "reconnect-failed",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Couldn\u2019t reconnect to the TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "lost-tv",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV became unreachable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "lost-tv",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV became unreachable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "lost-tv",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV became unreachable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "lost-tv",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV became unreachable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "lost-tv",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV became unreachable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "lost-tv",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV became unreachable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "interrupted",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The connection was interrupted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "interrupted",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The connection was interrupted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "interrupted",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The connection was interrupted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "interrupted",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The connection was interrupted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "interrupted",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The connection was interrupted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "interrupted",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The connection was interrupted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "unstable",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "unstable",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "unstable",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "unstable",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "unstable",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "unstable",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Sharing toLiving Room TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow screen sharing",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow screen sharing",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow screen sharing",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow screen sharing",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow screen sharing",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "permission",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow screen sharing",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "local-network",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Let Miraya find your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "local-network",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Let Miraya find your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "local-network",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Let Miraya find your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "local-network",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Let Miraya find your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "local-network",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Let Miraya find your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "local-network",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Let Miraya find your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "audio-error",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Audio needs attention",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "audio-error",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Audio needs attention",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "audio-error",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Audio needs attention",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "audio-error",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Audio needs attention",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "audio-error",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Audio needs attention",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "audio-error",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Audio needs attention",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "decoder-error",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV couldn\u2019t display the video",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "decoder-error",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV couldn\u2019t display the video",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "decoder-error",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV couldn\u2019t display the video",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "decoder-error",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV couldn\u2019t display the video",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "decoder-error",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV couldn\u2019t display the video",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "decoder-error",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The TV couldn\u2019t display the video",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "format-error",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This media couldn\u2019t be played",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "format-error",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This media couldn\u2019t be played",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "format-error",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This media couldn\u2019t be played",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "format-error",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This media couldn\u2019t be played",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "format-error",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This media couldn\u2019t be played",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "format-error",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This media couldn\u2019t be played",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Trusted TVs",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Trusted TVs",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Trusted TVs",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Trusted TVs",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Trusted TVs",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trusted",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Trusted TVs",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "forget",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget Living Room TV?",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "forget",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget Living Room TV?",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "forget",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget Living Room TV?",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "forget",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget Living Room TV?",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "forget",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget Living Room TV?",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "forget",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget Living Room TV?",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-invalid",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This TV\u2019s identity has changed",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-invalid",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This TV\u2019s identity has changed",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-invalid",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This TV\u2019s identity has changed",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-invalid",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This TV\u2019s identity has changed",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-invalid",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This TV\u2019s identity has changed",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-invalid",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This TV\u2019s identity has changed",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-revoked",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This Mac is no longer trusted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-revoked",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This Mac is no longer trusted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-revoked",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This Mac is no longer trusted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-revoked",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This Mac is no longer trusted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-revoked",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "This Mac is no longer trusted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "trust-revoked",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "This Mac is no longer trusted",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection details",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection details",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection details",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection details",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection details",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "details",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection details",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Play video on TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Play video on TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Play video on TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Play video on TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Play video on TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-ready",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Play video on TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playing on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playing on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playing on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playing on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playing on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-live",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playing on your TV",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-paused",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playback paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-paused",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playback paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-paused",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playback paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-paused",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playback paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-paused",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playback paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-paused",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "Playback paused",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-error",
+      "width": 340,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The video source is unavailable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-error",
+      "width": 340,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The video source is unavailable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-error",
+      "width": 420,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The video source is unavailable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-error",
+      "width": 420,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The video source is unavailable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-error",
+      "width": 540,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "The video source is unavailable",
+      "footerVisible": true
+    },
+    {
+      "view": "mac",
+      "state": "media-error",
+      "width": 540,
+      "theme": "dark",
+      "clipped": [],
+      "broken": [],
+      "h1": "The video source is unavailable",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "startup",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Getting ready",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "startup",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Getting ready",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "ready",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "ready",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "offline",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "No local network yet",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "offline",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "No local network yet",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "pairing",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "pairing",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Compare with your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "approval",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow MacBook Pro?",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "approval",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Allow MacBook Pro?",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "declined",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection declined",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "declined",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Connection declined",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "expired",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Pairing expired",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "expired",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Pairing expired",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "connected",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Mac verified",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "connected",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Mac verified",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "live",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "live",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "controls",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "controls",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "paused",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "paused",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "lost",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your Mac disconnected",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "lost",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Your Mac disconnected",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "picture",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "picture",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "margin",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "margin",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "volume",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "volume",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "details",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "details",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "trusted",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "trusted",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "forget",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget MacBook Pro?",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "forget",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Forget MacBook Pro?",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "rename",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "rename",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "h1": "Ready for your Mac",
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "media-live",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "media-live",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "media-controls",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "media-controls",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "media-paused",
+      "width": 1180,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    },
+    {
+      "view": "tv",
+      "state": "media-paused",
+      "width": 1920,
+      "theme": "light",
+      "clipped": [],
+      "broken": [],
+      "footerVisible": true
+    }
+  ],
+  "errors": []
+}

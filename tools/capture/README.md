@@ -49,11 +49,11 @@ test of the sender's presentation-acknowledgment backpressure.
 
 ## Test a running Android receiver
 
-Open Miraya on the TV/emulator and read its displayed pairing code:
+Open Miraya on the TV/emulator. For first pairing, the probe asks for the six-digit code that appears on the TV after the commitment exchange:
 
 ```sh
 MIRAYA_PROBE_BINARY="$(swift build --package-path macos --show-bin-path)/Miraya"
-"$MIRAYA_PROBE_BINARY" --probe TV_IP 7421 XXXX-XXXX-XXXX-XXXX 8
+"$MIRAYA_PROBE_BINARY" --probe TV_IP 7421 interactive 8
 ```
 
 Approve **Miraya diagnostic** on the TV with its remote. `--probe` runs before the
@@ -70,6 +70,8 @@ Optional environment variables:
 | --- | --- |
 | `MIRAYA_PROBE_WIDTH` / `MIRAYA_PROBE_HEIGHT` | Even video dimensions, at most 1920 × 1080; defaults 640 × 360. |
 | `MIRAYA_PROBE_FPS` | 30 or 60; default 30. |
+| `MIRAYA_PROBE_SCENES=1` | Change a detailed deterministic image every two seconds, with IDRs and moving overlays. |
+| `MIRAYA_PROBE_PAUSE_AT` / `MIRAYA_PROBE_PAUSE_FOR` | Seconds from media start and duration of an idle capture interval; heartbeat/statistics remain active. |
 | `MIRAYA_PROBE_RECONNECT=1` | Run a second complete session using the saved full pin and token. |
 | `MIRAYA_PROBE_FORGET=1` | Forget this endpoint's diagnostic pairing before starting, useful after revoking TV tokens. |
 | `MIRAYA_PROBE_TOKEN` / `MIRAYA_PROBE_FINGERPRINT` / `MIRAYA_PROBE_CLIENT_ID` | Explicit credential overrides for controlled auth tests. |
@@ -82,3 +84,20 @@ are removed when the Python tool exits.
 Actual ScreenCaptureKit capture is tested by opening the packaged `.app`, granting
 the normal Screen & System Audio Recording permission, and sharing a display.
 The diagnostics deliberately avoid prompting for that permission from Terminal.
+
+For scene-change and idle/resume validation on the TV emulator:
+
+```sh
+source scripts/android-env.sh
+python3 tools/emulator-smoke.py --reset --performance
+```
+
+This clears only the selected emulator's Miraya data, uses the visible pairing
+approval, and runs two 20-second 1080p30/PCM sessions with detailed scene changes
+and a six-second idle interval. Diagnostic congestion requests fresh IDRs and
+reduces bitrate. `maxAckLagMs` measures sender PTS distance to the latest scheduled
+frame acknowledged in periodic telemetry; it is **not glass-to-glass latency**.
+`pendingAgeMs` measures elapsed time since the oldest still-unacknowledged
+generated frame was submitted, avoiding a misleading PTS gap across idle periods.
+The final telemetry can precede the last in-flight frames. Logs are under
+`build/emulator-smoke/`; this does not capture private desktop content.

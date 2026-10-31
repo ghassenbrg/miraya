@@ -1,0 +1,8 @@
+AndroidX Media3 1.11.1
+Copyright The Android Open Source Project and contributors.
+Licensed under the Apache License, Version 2.0 (Apache-2.0.txt).
+Source and license: https://github.com/androidx/media/tree/1.11.1
+
+Miraya bundles Media3 ExoPlayer, its HLS and DASH modules, UI components,
+and their AndroidX dependencies for direct media playback. No FFmpeg
+extension or external decoder binary is bundled by this integration.
